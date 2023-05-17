@@ -18,7 +18,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
 from PySide6.QtWidgets import (QApplication, QFrame, QLabel, QLineEdit,
     QPushButton, QSizePolicy, QVBoxLayout, QWidget)
 
-class AddWindowForm(object):
+class Ui_AddWindowForm(object):
     def setupUi(self, AddWindowForm):
         if not AddWindowForm.objectName():
             AddWindowForm.setObjectName(u"AddWindowForm")

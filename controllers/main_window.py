@@ -1,16 +1,14 @@
 from PySide6.QtWidgets import QWidget
-from PySide6.QtCore import Qt
-from views.Ui_index import MainWindow
+from views.Ui_index import Ui_MainWindow
 from controllers.alta_prod import AddWindowForm
 
-class MainWindowForm(QWidget,MainWindow):
-    def __init__(self,):
-        super().__init__()
-        self.setupUi(self)
+class MainWindowForm(QWidget):
+    def __init__(self, parent=None):
+        super(MainWindowForm, self).__init__(parent)
+        self.ui = Ui_MainWindow()
+        self.ui.setupUi(self)
+        self.ui.add_product_button.clicked.connect(self.open_add_window)
+        self.window2 = AddWindowForm()
 
-        self.add_product_button.clicked.connect(self.open_add_window)
-        
-    
     def open_add_window(self):
-        window=AddWindowForm()
-        window.show()
+        self.window2.show()

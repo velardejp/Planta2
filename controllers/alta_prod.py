@@ -1,10 +1,8 @@
-from typing import Optional
-from PySide6.QtCore import Qt
 from PySide6.QtWidgets import QWidget
+from views.Ui_add_producto import Ui_AddWindowForm
 
-from views.Ui_add_producto import AddWindowForm
-
-class AddWindowForm(QWidget,AddWindowForm):
-    def __init__(self,parent=None):
-        super().__init__(parent)
-        self.setupUi(self)
+class AddWindowForm(QWidget):
+    def __init__(self, parent=None):
+        super(AddWindowForm, self).__init__(parent)
+        self.ui = Ui_AddWindowForm()
+        self.ui.setupUi(self)
