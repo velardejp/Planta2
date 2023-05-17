@@ -16,7 +16,8 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QFrame, QLabel, QLineEdit,
-    QPushButton, QSizePolicy, QVBoxLayout, QWidget)
+    QPushButton, QRadioButton, QSizePolicy, QVBoxLayout,
+    QWidget)
 
 class Ui_AddWindowForm(object):
     def setupUi(self, AddWindowForm):
@@ -48,7 +49,7 @@ class Ui_AddWindowForm(object):
         self.content_frame.setFrameShadow(QFrame.Raised)
         self.submit_product_button = QPushButton(self.content_frame)
         self.submit_product_button.setObjectName(u"submit_product_button")
-        self.submit_product_button.setGeometry(QRect(100, 160, 111, 31))
+        self.submit_product_button.setGeometry(QRect(100, 200, 111, 31))
         self.product_name = QLineEdit(self.content_frame)
         self.product_name.setObjectName(u"product_name")
         self.product_name.setGeometry(QRect(60, 60, 191, 21))
@@ -63,6 +64,12 @@ class Ui_AddWindowForm(object):
         self.label_2 = QLabel(self.content_frame)
         self.label_2.setObjectName(u"label_2")
         self.label_2.setGeometry(QRect(60, 90, 191, 16))
+        self.litros_button = QRadioButton(self.content_frame)
+        self.litros_button.setObjectName(u"litros_button")
+        self.litros_button.setGeometry(QRect(100, 140, 89, 20))
+        self.kilos_button = QRadioButton(self.content_frame)
+        self.kilos_button.setObjectName(u"kilos_button")
+        self.kilos_button.setGeometry(QRect(100, 170, 89, 20))
 
         self.verticalLayout_3.addWidget(self.content_frame)
 
@@ -83,5 +90,7 @@ class Ui_AddWindowForm(object):
         self.submit_product_button.setText(QCoreApplication.translate("AddWindowForm", u"Agregar Producto", None))
         self.label.setText(QCoreApplication.translate("AddWindowForm", u"Nombre:", None))
         self.label_2.setText(QCoreApplication.translate("AddWindowForm", u"Unidad de medida:", None))
+        self.litros_button.setText(QCoreApplication.translate("AddWindowForm", u"Litros", None))
+        self.kilos_button.setText(QCoreApplication.translate("AddWindowForm", u"Kilogramos", None))
     # retranslateUi
 
