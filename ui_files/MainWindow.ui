@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>835</width>
+    <height>507</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QFrame" name="background_frame">
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(29, 53, 87);</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QFrame" name="content_frame">
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>835</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuProductos">
+    <property name="title">
+     <string>Productos</string>
+    </property>
+    <addaction name="action_nuevoproducto"/>
+    <addaction name="action_catalago"/>
+   </widget>
+   <widget class="QMenu" name="menuEntradas">
+    <property name="title">
+     <string>Entradas</string>
+    </property>
+    <addaction name="action_entry"/>
+   </widget>
+   <widget class="QMenu" name="menuSalidas">
+    <property name="title">
+     <string>Salidas</string>
+    </property>
+    <addaction name="action_exit"/>
+   </widget>
+   <widget class="QMenu" name="menuReportes">
+    <property name="title">
+     <string>Reportes</string>
+    </property>
+    <addaction name="action_report_entradas"/>
+    <addaction name="action_report_salidas"/>
+    <addaction name="action_report_kardex"/>
+   </widget>
+   <addaction name="menuProductos"/>
+   <addaction name="menuEntradas"/>
+   <addaction name="menuSalidas"/>
+   <addaction name="menuReportes"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="action_nuevoproducto">
+   <property name="text">
+    <string>Nuevo</string>
+   </property>
+  </action>
+  <action name="action_catalago">
+   <property name="text">
+    <string>Catalogo</string>
+   </property>
+  </action>
+  <action name="action_entry">
+   <property name="text">
+    <string>Nueva</string>
+   </property>
+  </action>
+  <action name="action_exit">
+   <property name="text">
+    <string>Nueva</string>
+   </property>
+  </action>
+  <action name="action_report_entradas">
+   <property name="text">
+    <string>Entradas</string>
+   </property>
+  </action>
+  <action name="action_report_salidas">
+   <property name="text">
+    <string>Salidas</string>
+   </property>
+  </action>
+  <action name="action_report_kardex">
+   <property name="text">
+    <string>Kardex</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,19 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QWidget" name="MainWindow">
+ <class>nueva_mezcla_window</class>
+ <widget class="QWidget" name="nueva_mezcla_window">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>885</width>
-    <height>499</height>
+    <width>291</width>
+    <height>235</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
    <item>
     <widget class="QFrame" name="central_frame">
      <property name="frameShape">
@@ -39,9 +54,9 @@
        <number>0</number>
       </property>
       <item>
-       <widget class="QFrame" name="background_frame">
+       <widget class="QFrame" name="backgroundcolor_frame">
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(216, 216, 216);</string>
+         <string notr="true">background-color: rgb(29, 53, 87);</string>
         </property>
         <property name="frameShape">
          <enum>QFrame::StyledPanel</enum>
@@ -73,83 +88,84 @@
            <property name="frameShadow">
             <enum>QFrame::Raised</enum>
            </property>
-           <widget class="QPushButton" name="productos_button">
+           <widget class="QLabel" name="label">
             <property name="geometry">
              <rect>
-              <x>20</x>
+              <x>70</x>
+              <y>30</y>
+              <width>111</width>
+              <height>41</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QLabel {
+       color: #ffffff;            /* Color del texto */
+       
+       border: 2px solid #457B9D; /* Color del borde */
+        border-radius: 5px;        /* Radio del borde (para bordes redondeados) */
+        padding: 5px;              /* Espacio interior alrededor del texto */
+        font-size: 14px;           /* Tama\u00f1o del texto */
+    }</string>
+            </property>
+            <property name="text">
+             <string>Nombre</string>
+            </property>
+           </widget>
+           <widget class="QLineEdit" name="nombre_mezcla">
+            <property name="geometry">
+             <rect>
+              <x>30</x>
+              <y>80</y>
+              <width>211</width>
+              <height>31</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QLineEdit {
+		background-color: rgb(255, 255, 255);
+       
+        color: #FFFFFF;
+        border: 2px solid #457B9D;
+        border-radius: 5px;
+        padding: 5px;
+    }
+
+    QLineEdit:focus {
+        border: 2px solid #E63946;
+    }</string>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="submit_mezcla_button">
+            <property name="geometry">
+             <rect>
+              <x>70</x>
               <y>120</y>
-              <width>101</width>
-              <height>24</height>
+              <width>121</width>
+              <height>41</height>
              </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"> QPushButton {
+        background-color: #457B9D;
+        color: #F1FAEE;
+        border: 2px solid #1D3557;
+        border-radius: 5px;
+        padding: 5px;
+        font-size: 14px;
+    }
+    QPushButton:hover {
+        background-color: #1D3557;
+        border: 2px solid #457B9D;
+    }
+    QPushButton:pressed {
+        background-color: #1D3557;
+        border: 2px solid #457B9D;
+        padding-left: 7px;  /* Para dar un efecto de &quot;presión&quot; */
+    }</string>
             </property>
             <property name="text">
-             <string>Productos</string>
+             <string>Agregar</string>
             </property>
-           </widget>
-           <widget class="QPushButton" name="add_entrada_button">
-            <property name="geometry">
-             <rect>
-              <x>20</x>
-              <y>170</y>
-              <width>101</width>
-              <height>24</height>
-             </rect>
-            </property>
-            <property name="text">
-             <string>Entrada</string>
-            </property>
-           </widget>
-           <widget class="QPushButton" name="add_salida_button">
-            <property name="geometry">
-             <rect>
-              <x>20</x>
-              <y>220</y>
-              <width>111</width>
-              <height>24</height>
-             </rect>
-            </property>
-            <property name="text">
-             <string>Salida</string>
-            </property>
-           </widget>
-           <widget class="QPushButton" name="add_product_button">
-            <property name="geometry">
-             <rect>
-              <x>10</x>
-              <y>78</y>
-              <width>111</width>
-              <height>24</height>
-             </rect>
-            </property>
-            <property name="text">
-             <string>Agregar Producto</string>
-            </property>
-           </widget>
-           <widget class="QTableWidget" name="stock_deprods">
-            <property name="geometry">
-             <rect>
-              <x>300</x>
-              <y>70</y>
-              <width>431</width>
-              <height>231</height>
-             </rect>
-            </property>
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-              <horstretch>2</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <column>
-             <property name="text">
-              <string>Producto Name</string>
-             </property>
-            </column>
-            <column>
-             <property name="text">
-              <string>Stock</string>
-             </property>
-            </column>
            </widget>
           </widget>
          </item>

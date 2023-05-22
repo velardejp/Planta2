@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QWidget" name="MainWindow">
+ <class>Salidas</class>
+ <widget class="QWidget" name="Salidas">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -73,83 +73,41 @@
            <property name="frameShadow">
             <enum>QFrame::Raised</enum>
            </property>
-           <widget class="QPushButton" name="productos_button">
+           <widget class="QPushButton" name="submit_salida_button">
             <property name="geometry">
              <rect>
-              <x>20</x>
-              <y>120</y>
-              <width>101</width>
-              <height>24</height>
-             </rect>
-            </property>
-            <property name="text">
-             <string>Productos</string>
-            </property>
-           </widget>
-           <widget class="QPushButton" name="add_entrada_button">
-            <property name="geometry">
-             <rect>
-              <x>20</x>
-              <y>170</y>
-              <width>101</width>
-              <height>24</height>
-             </rect>
-            </property>
-            <property name="text">
-             <string>Entrada</string>
-            </property>
-           </widget>
-           <widget class="QPushButton" name="add_salida_button">
-            <property name="geometry">
-             <rect>
-              <x>20</x>
-              <y>220</y>
+              <x>270</x>
+              <y>190</y>
               <width>111</width>
-              <height>24</height>
+              <height>31</height>
              </rect>
             </property>
             <property name="text">
              <string>Salida</string>
             </property>
            </widget>
-           <widget class="QPushButton" name="add_product_button">
+           <widget class="QLineEdit" name="cantidad_salida">
             <property name="geometry">
              <rect>
-              <x>10</x>
-              <y>78</y>
-              <width>111</width>
-              <height>24</height>
+              <x>250</x>
+              <y>130</y>
+              <width>141</width>
+              <height>31</height>
              </rect>
             </property>
-            <property name="text">
-             <string>Agregar Producto</string>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(255, 255, 255);</string>
             </property>
            </widget>
-           <widget class="QTableWidget" name="stock_deprods">
+           <widget class="QComboBox" name="productos_salida">
             <property name="geometry">
              <rect>
-              <x>300</x>
-              <y>70</y>
-              <width>431</width>
-              <height>231</height>
+              <x>250</x>
+              <y>90</y>
+              <width>141</width>
+              <height>22</height>
              </rect>
             </property>
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-              <horstretch>2</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <column>
-             <property name="text">
-              <string>Producto Name</string>
-             </property>
-            </column>
-            <column>
-             <property name="text">
-              <string>Stock</string>
-             </property>
-            </column>
            </widget>
           </widget>
          </item>
