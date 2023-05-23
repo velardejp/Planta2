@@ -65,7 +65,7 @@ class Ui_nueva_mezcla_window(object):
         self.nombre_mezcla.setStyleSheet(u"QLineEdit {\n"
 "		background-color: rgb(255, 255, 255);\n"
 "       \n"
-"        color: #FFFFFF;\n"
+"        color: #000000;\n"
 "        border: 2px solid #457B9D;\n"
 "        border-radius: 5px;\n"
 "        padding: 5px;\n"

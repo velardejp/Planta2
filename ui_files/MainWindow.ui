@@ -65,6 +65,75 @@
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
+         <widget class="QPlainTextEdit" name="chathistory">
+          <property name="geometry">
+           <rect>
+            <x>500</x>
+            <y>20</y>
+            <width>301</width>
+            <height>301</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPlainTextEdit {
+        background-color: #333;
+        color: #fff;
+        border: 2px solid #555;
+        border-radius: 10px;
+        font-size: 16px;
+    }</string>
+          </property>
+         </widget>
+         <widget class="QLineEdit" name="userinput">
+          <property name="geometry">
+           <rect>
+            <x>510</x>
+            <y>350</y>
+            <width>281</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLineEdit {
+        background-color: #333;
+        color: #fff;
+        border: none;
+        border-bottom: 2px solid #555;
+        font-size: 16px;
+    }</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="chatbutton">
+          <property name="geometry">
+           <rect>
+            <x>570</x>
+            <y>390</y>
+            <width>171</width>
+            <height>51</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QPushButton {
+        background-color: #5c6bc0;
+        color: #fff;
+        border: none;
+        border-radius: 10px;
+        padding: 5px 10px;
+        font-size: 16px;
+    }
+
+    QPushButton:hover {
+        background-color: #7986cb;
+    }
+
+    QPushButton:pressed {
+        background-color: #3f51b5;
+    }</string>
+          </property>
+          <property name="text">
+           <string>PushButton</string>
+          </property>
+         </widget>
         </widget>
        </item>
       </layout>

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>exit_window</class>
- <widget class="QWidget" name="exit_window">
+ <class>ventana_nuevo_producto</class>
+ <widget class="QWidget" name="ventana_nuevo_producto">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>302</width>
-    <height>294</height>
+    <width>400</width>
+    <height>300</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -81,54 +81,44 @@
           <number>0</number>
          </property>
          <item>
-          <widget class="QFrame" name="content_frame">
+          <widget class="QFrame" name="frame">
            <property name="frameShape">
             <enum>QFrame::StyledPanel</enum>
            </property>
            <property name="frameShadow">
             <enum>QFrame::Raised</enum>
            </property>
-           <widget class="QComboBox" name="productos_exit">
+           <widget class="QLineEdit" name="nombre_nuevo_prod">
             <property name="geometry">
              <rect>
-              <x>70</x>
+              <x>90</x>
               <y>60</y>
-              <width>151</width>
-              <height>21</height>
+              <width>211</width>
+              <height>41</height>
              </rect>
             </property>
             <property name="styleSheet">
-             <string notr="true">QComboBox {
-        background-color: #F1FAEE;
-        color: #1D3557;
+             <string notr="true">QLineEdit {
         border: 2px solid #457B9D;
-        border-radius: 5px;
+        border-radius: 15px;
         padding: 5px;
-        font-size: 14px;
+        background-color: white;
+        color: black;
+        font-size: 16px;
     }
-    QComboBox::drop-down {
-        border: none;
-    }
-    QComboBox::down-arrow {
-        image: url(C:/Users/velar/OneDrive/Escritorio/Planta2/assets/icons8-expand-arrow-24.png);
-    }
-    QComboBox QAbstractItemView {
-        border: 2px solid #457B9D;
-        selection-background-color: #457B9D;
+    QLineEdit:focus {
+        border: 2px solid #34eb4f;
     }</string>
             </property>
            </widget>
            <widget class="QLabel" name="label">
             <property name="geometry">
              <rect>
-              <x>70</x>
+              <x>100</x>
               <y>20</y>
-              <width>91</width>
+              <width>151</width>
               <height>31</height>
              </rect>
-            </property>
-            <property name="layoutDirection">
-             <enum>Qt::LeftToRight</enum>
             </property>
             <property name="styleSheet">
              <string notr="true">QLabel {
@@ -141,82 +131,67 @@
     }</string>
             </property>
             <property name="text">
-             <string>PRODUCTO</string>
+             <string>Nombre</string>
             </property>
            </widget>
-           <widget class="QDoubleSpinBox" name="cantidad_exit_spin">
+           <widget class="QRadioButton" name="kilos_radiobutton">
             <property name="geometry">
              <rect>
-              <x>70</x>
+              <x>60</x>
               <y>140</y>
-              <width>81</width>
+              <width>131</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QRadioButton {
+        font-size: 16px;
+        color: white;
+    }
+    QRadioButton::indicator {
+        width: 20px;
+        height: 20px;
+    }</string>
+            </property>
+            <property name="text">
+             <string>Kilogramos</string>
+            </property>
+           </widget>
+           <widget class="QRadioButton" name="litros_radiobutton">
+            <property name="geometry">
+             <rect>
+              <x>200</x>
+              <y>140</y>
+              <width>121</width>
+              <height>20</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QRadioButton {
+        font-size: 16px;
+        color: white;
+    }
+    QRadioButton::indicator {
+        width: 20px;
+        height: 20px;
+    }
+  </string>
+            </property>
+            <property name="text">
+             <string>Litros</string>
+            </property>
+           </widget>
+           <widget class="QPushButton" name="submit_nuevoproducto_button">
+            <property name="geometry">
+             <rect>
+              <x>120</x>
+              <y>200</y>
+              <width>131</width>
               <height>41</height>
              </rect>
             </property>
             <property name="styleSheet">
-             <string notr="true"> QDoubleSpinBox {
-        background-color: #F1FAEE;
-        color: #1D3557;
-        border: 2px solid #457B9D;
-        border-radius: 5px;
-        padding: 5px;
-        font-size: 14px;
-    }
-    QDoubleSpinBox::up-button {
-        width: 20px;
-        border: none;
-        background: #457B9D url(C:/Users/velar/OneDrive/Escritorio/Planta2/assets/icons8-collapse-arrow-24.png) no-repeat center;
-    }
-    QDoubleSpinBox::down-button {
-        width: 20px;
-        border: none;
-        background: #457B9D url(C:/Users/velar/OneDrive/Escritorio/Planta2/assets/icons8-expand-arrow-24.png) no-repeat center;
-    }
-    QDoubleSpinBox::up-button:pressed {
-        background: #1D3557 url(path_to_up_arrow) no-repeat center;
-    }
-    QDoubleSpinBox::down-button:pressed {
-        background: #1D3557 url(path_to_down_arrow) no-repeat center;
-    }</string>
-            </property>
-           </widget>
-           <widget class="QLabel" name="label_2">
-            <property name="geometry">
-             <rect>
-              <x>70</x>
-              <y>100</y>
-              <width>91</width>
-              <height>31</height>
-             </rect>
-            </property>
-            <property name="layoutDirection">
-             <enum>Qt::LeftToRight</enum>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">QLabel {
-        color: #ffffff;            /* Color del texto */
-        
-        border: 2px solid #457B9D; /* Color del borde */
-        border-radius: 5px;        /* Radio del borde (para bordes redondeados) */
-        padding: 5px;              /* Espacio interior alrededor del texto */
-        font-size: 14px;           /* Tamaño del texto */
-    }</string>
-            </property>
-            <property name="text">
-             <string>CANTIDAD</string>
-            </property>
-           </widget>
-           <widget class="QPushButton" name="submit_exit_button">
-            <property name="geometry">
-             <rect>
-              <x>90</x>
-              <y>200</y>
-              <width>101</width>
-              <height>31</height>
-             </rect>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">QPushButton {
+             <string notr="true"> QPushButton {
         background-color: #457B9D;
         color: #F1FAEE;
         border: 2px solid #1D3557;
@@ -235,7 +210,7 @@
     }</string>
             </property>
             <property name="text">
-             <string>Aplicar</string>
+             <string>Agregar</string>
             </property>
            </widget>
           </widget>

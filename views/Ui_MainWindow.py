@@ -16,9 +16,9 @@ from PySide6.QtGui import (QAction, QBrush, QColor, QConicalGradient,
     QIcon, QImage, QKeySequence, QLinearGradient,
     QPainter, QPalette, QPixmap, QRadialGradient,
     QTransform)
-from PySide6.QtWidgets import (QApplication, QFrame, QMainWindow, QMenu,
-    QMenuBar, QSizePolicy, QStatusBar, QVBoxLayout,
-    QWidget)
+from PySide6.QtWidgets import (QApplication, QFrame, QLineEdit, QMainWindow,
+    QMenu, QMenuBar, QPlainTextEdit, QPushButton,
+    QSizePolicy, QStatusBar, QVBoxLayout, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -62,6 +62,45 @@ class Ui_MainWindow(object):
         self.content_frame.setObjectName(u"content_frame")
         self.content_frame.setFrameShape(QFrame.StyledPanel)
         self.content_frame.setFrameShadow(QFrame.Raised)
+        self.chathistory = QPlainTextEdit(self.content_frame)
+        self.chathistory.setObjectName(u"chathistory")
+        self.chathistory.setGeometry(QRect(500, 20, 301, 301))
+        self.chathistory.setStyleSheet(u"QPlainTextEdit {\n"
+"        background-color: #333;\n"
+"        color: #fff;\n"
+"        border: 2px solid #555;\n"
+"        border-radius: 10px;\n"
+"        font-size: 16px;\n"
+"    }")
+        self.userinput = QLineEdit(self.content_frame)
+        self.userinput.setObjectName(u"userinput")
+        self.userinput.setGeometry(QRect(510, 350, 281, 21))
+        self.userinput.setStyleSheet(u"QLineEdit {\n"
+"        background-color: #333;\n"
+"        color: #fff;\n"
+"        border: none;\n"
+"        border-bottom: 2px solid #555;\n"
+"        font-size: 16px;\n"
+"    }")
+        self.chatbutton = QPushButton(self.content_frame)
+        self.chatbutton.setObjectName(u"chatbutton")
+        self.chatbutton.setGeometry(QRect(570, 390, 171, 51))
+        self.chatbutton.setStyleSheet(u"QPushButton {\n"
+"        background-color: #5c6bc0;\n"
+"        color: #fff;\n"
+"        border: none;\n"
+"        border-radius: 10px;\n"
+"        padding: 5px 10px;\n"
+"        font-size: 16px;\n"
+"    }\n"
+"\n"
+"    QPushButton:hover {\n"
+"        background-color: #7986cb;\n"
+"    }\n"
+"\n"
+"    QPushButton:pressed {\n"
+"        background-color: #3f51b5;\n"
+"    }")
 
         self.verticalLayout_2.addWidget(self.content_frame)
 
@@ -115,6 +154,7 @@ class Ui_MainWindow(object):
         self.action_report_entradas.setText(QCoreApplication.translate("MainWindow", u"Entradas", None))
         self.action_report_salidas.setText(QCoreApplication.translate("MainWindow", u"Salidas", None))
         self.action_report_kardex.setText(QCoreApplication.translate("MainWindow", u"Kardex", None))
+        self.chatbutton.setText(QCoreApplication.translate("MainWindow", u"PushButton", None))
         self.menuProductos.setTitle(QCoreApplication.translate("MainWindow", u"Productos", None))
         self.menuEntradas.setTitle(QCoreApplication.translate("MainWindow", u"Entradas", None))
         self.menuSalidas.setTitle(QCoreApplication.translate("MainWindow", u"Salidas", None))
