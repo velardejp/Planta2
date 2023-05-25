@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Reporte salidas</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <property name="spacing">
@@ -56,7 +56,7 @@
       <item>
        <widget class="QFrame" name="backgroundcolor_frame">
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(29, 53, 87);</string>
+         <string notr="true">background-color: #537188;</string>
         </property>
         <property name="frameShape">
          <enum>QFrame::StyledPanel</enum>
@@ -99,28 +99,33 @@
             </property>
             <property name="styleSheet">
              <string notr="true">QTableWidget {
-        background-color: #F1FAEE;
-        color: #1D3557;
-        border: 2px solid #457B9D;
-        border-radius: 5px;
-        font-size: 14px;
-        gridline-color: #457B9D;
-    }
-    QTableWidget::item {
-        border: 1px solid #457B9D;
-    }
-    QTableWidget::item:selected {
-        background-color: #457B9D;
-        color: #F1FAEE;
-    }
-    QHeaderView::section {
-        background-color: #457B9D;
-        color: #F1FAEE;
-        padding: 5px;
-        border: 2px solid #1D3557;
-        border-radius: 5px;
-        font-size: 14px;
-    }</string>
+    background-color: #E1D4BB;
+    color: #537188;
+    border: 2px solid #CBB279;
+    border-radius: 5px;
+    margin: 5px;
+    font-size: 14px;
+    gridline-color: #537188;
+}
+
+QTableWidget::item {
+    border: 1px solid #537188;
+}
+
+QTableWidget::item:selected {
+    background-color: #CBB279;
+    color: #E1D4BB;
+}
+
+QHeaderView::section {
+    background-color: #E1D4BB;
+    color: #537188;
+    padding: 5px;
+    border: 2px solid #CBB279;
+    border-radius: 5px;
+    margin: 5px;
+    font-size: 14px;
+}</string>
             </property>
             <column>
              <property name="text">
@@ -142,18 +147,70 @@
               <string>Fecha</string>
              </property>
             </column>
+            <column>
+             <property name="text">
+              <string>Mezcla</string>
+             </property>
+            </column>
            </widget>
            <widget class="QPushButton" name="import_excel_salidas">
             <property name="geometry">
              <rect>
-              <x>640</x>
-              <y>350</y>
-              <width>75</width>
-              <height>24</height>
+              <x>584</x>
+              <y>323</y>
+              <width>131</width>
+              <height>51</height>
              </rect>
             </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+    background-color: #E1D4BB;
+    color: #537188;
+    border: 2px solid #CBB279;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    font-size: 14px;
+}
+
+QPushButton:hover {
+    background-color: #CBB279;
+    border: 2px solid #537188;
+}
+
+QPushButton:pressed {
+    background-color: #CBB279;
+    border: 2px solid #537188;
+    padding-left: 7px;
+}</string>
+            </property>
             <property name="text">
-             <string>excel</string>
+             <string>Excel</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label">
+            <property name="geometry">
+             <rect>
+              <x>20</x>
+              <y>15</y>
+              <width>711</width>
+              <height>51</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QLabel {
+    color: #ffffff;
+    border: 2px solid #537188;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    font-size: 14px;
+    text-align: center;
+    background-color: #CBB279;
+}</string>
+            </property>
+            <property name="text">
+             <string>SALIDAS</string>
             </property>
            </widget>
           </widget>

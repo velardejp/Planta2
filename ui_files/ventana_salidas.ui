@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>302</width>
-    <height>294</height>
+    <width>561</width>
+    <height>300</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Nueva salida</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <property name="spacing">
@@ -56,7 +56,7 @@
       <item>
        <widget class="QFrame" name="backgroundcolor_frame">
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(29, 53, 87);</string>
+         <string notr="true">background-color: #537188;</string>
         </property>
         <property name="frameShape">
          <enum>QFrame::StyledPanel</enum>
@@ -91,40 +91,44 @@
            <widget class="QComboBox" name="productos_exit">
             <property name="geometry">
              <rect>
-              <x>70</x>
-              <y>60</y>
-              <width>151</width>
-              <height>21</height>
+              <x>10</x>
+              <y>50</y>
+              <width>171</width>
+              <height>51</height>
              </rect>
             </property>
             <property name="styleSheet">
              <string notr="true">QComboBox {
-        background-color: #F1FAEE;
-        color: #1D3557;
-        border: 2px solid #457B9D;
-        border-radius: 5px;
-        padding: 5px;
-        font-size: 14px;
-    }
-    QComboBox::drop-down {
-        border: none;
-    }
-    QComboBox::down-arrow {
-        image: url(C:/Users/velar/OneDrive/Escritorio/Planta2/assets/icons8-expand-arrow-24.png);
-    }
-    QComboBox QAbstractItemView {
-        border: 2px solid #457B9D;
-        selection-background-color: #457B9D;
-    }</string>
+    background-color: #E1D4BB;
+    color: #537188;
+    border: 2px solid #CBB279;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    font-size: 14px;
+}
+
+QComboBox::drop-down {
+    border: none;
+}
+
+QComboBox::down-arrow {
+    image: url(C:/Users/velar/OneDrive/Escritorio/Planta2/assets/icons8-expand-arrow-24.png);
+}
+
+QComboBox QAbstractItemView {
+    border: 2px solid #537188;
+    selection-background-color: #CBB279;
+}</string>
             </property>
            </widget>
            <widget class="QLabel" name="label">
             <property name="geometry">
              <rect>
-              <x>70</x>
-              <y>20</y>
-              <width>91</width>
-              <height>31</height>
+              <x>10</x>
+              <y>10</y>
+              <width>171</width>
+              <height>45</height>
              </rect>
             </property>
             <property name="layoutDirection">
@@ -132,13 +136,15 @@
             </property>
             <property name="styleSheet">
              <string notr="true">QLabel {
-        color: #ffffff;            /* Color del texto */
-        
-        border: 2px solid #457B9D; /* Color del borde */
-        border-radius: 5px;        /* Radio del borde (para bordes redondeados) */
-        padding: 5px;              /* Espacio interior alrededor del texto */
-        font-size: 14px;           /* Tamaño del texto */
-    }</string>
+    color: #ffffff;
+    border: 2px solid #537188;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    font-size: 14px;
+    text-align: center;
+    background-color: #CBB279;
+}</string>
             </property>
             <property name="text">
              <string>PRODUCTO</string>
@@ -147,46 +153,51 @@
            <widget class="QDoubleSpinBox" name="cantidad_exit_spin">
             <property name="geometry">
              <rect>
-              <x>70</x>
+              <x>10</x>
               <y>140</y>
-              <width>81</width>
-              <height>41</height>
+              <width>171</width>
+              <height>51</height>
              </rect>
             </property>
             <property name="styleSheet">
              <string notr="true"> QDoubleSpinBox {
-        background-color: #F1FAEE;
-        color: #1D3557;
-        border: 2px solid #457B9D;
-        border-radius: 5px;
-        padding: 5px;
-        font-size: 14px;
-    }
-    QDoubleSpinBox::up-button {
-        width: 20px;
-        border: none;
-        background: #457B9D url(C:/Users/velar/OneDrive/Escritorio/Planta2/assets/icons8-collapse-arrow-24.png) no-repeat center;
-    }
-    QDoubleSpinBox::down-button {
-        width: 20px;
-        border: none;
-        background: #457B9D url(C:/Users/velar/OneDrive/Escritorio/Planta2/assets/icons8-expand-arrow-24.png) no-repeat center;
-    }
-    QDoubleSpinBox::up-button:pressed {
-        background: #1D3557 url(path_to_up_arrow) no-repeat center;
-    }
-    QDoubleSpinBox::down-button:pressed {
-        background: #1D3557 url(path_to_down_arrow) no-repeat center;
-    }</string>
+    background-color: #E1D4BB;
+    color: #537188;
+    border: 2px solid #CBB279;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    font-size: 14px;
+}
+
+QDoubleSpinBox::up-button {
+    width: 20px;
+    border: none;
+    background: #537188 url(C:/Users/velar/OneDrive/Escritorio/Planta2/assets/icons8-collapse-arrow-24.png) no-repeat center;
+}
+
+QDoubleSpinBox::down-button {
+    width: 20px;
+    border: none;
+    background: #537188 url(C:/Users/velar/OneDrive/Escritorio/Planta2/assets/icons8-expand-arrow-24.png) no-repeat center;
+}
+
+QDoubleSpinBox::up-button:pressed {
+    background: #CBB279 url(C:/Users/velar/OneDrive/Escritorio/Planta2/assets/icons8-collapse-arrow-24.png) no-repeat center;
+}
+
+QDoubleSpinBox::down-button:pressed {
+    background: #CBB279 url(C:/Users/velar/OneDrive/Escritorio/Planta2/assets/icons8-expand-arrow-24.png) no-repeat center;
+}</string>
             </property>
            </widget>
            <widget class="QLabel" name="label_2">
             <property name="geometry">
              <rect>
-              <x>70</x>
+              <x>10</x>
               <y>100</y>
-              <width>91</width>
-              <height>31</height>
+              <width>171</width>
+              <height>45</height>
              </rect>
             </property>
             <property name="layoutDirection">
@@ -194,13 +205,15 @@
             </property>
             <property name="styleSheet">
              <string notr="true">QLabel {
-        color: #ffffff;            /* Color del texto */
-        
-        border: 2px solid #457B9D; /* Color del borde */
-        border-radius: 5px;        /* Radio del borde (para bordes redondeados) */
-        padding: 5px;              /* Espacio interior alrededor del texto */
-        font-size: 14px;           /* Tamaño del texto */
-    }</string>
+    color: #ffffff;
+    border: 2px solid #537188;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    font-size: 14px;
+    text-align: center;
+    background-color: #CBB279;
+}</string>
             </property>
             <property name="text">
              <string>CANTIDAD</string>
@@ -209,30 +222,118 @@
            <widget class="QPushButton" name="submit_exit_button">
             <property name="geometry">
              <rect>
-              <x>90</x>
+              <x>300</x>
               <y>200</y>
-              <width>101</width>
-              <height>31</height>
+              <width>141</width>
+              <height>51</height>
              </rect>
             </property>
             <property name="styleSheet">
              <string notr="true">QPushButton {
-        background-color: #457B9D;
-        color: #F1FAEE;
-        border: 2px solid #1D3557;
-        border-radius: 5px;
-        padding: 5px;
-        font-size: 14px;
-    }
-    QPushButton:hover {
-        background-color: #1D3557;
-        border: 2px solid #457B9D;
-    }
-    QPushButton:pressed {
-        background-color: #1D3557;
-        border: 2px solid #457B9D;
-        padding-left: 7px;  /* Para dar un efecto de &quot;presión&quot; */
-    }</string>
+    background-color: #E1D4BB;
+    color: #537188;
+    border: 2px solid #CBB279;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    font-size: 14px;
+}
+
+QPushButton:hover {
+    background-color: #CBB279;
+    border: 2px solid #537188;
+}
+
+QPushButton:pressed {
+    background-color: #CBB279;
+    border: 2px solid #537188;
+    padding-left: 7px;
+}</string>
+            </property>
+            <property name="text">
+             <string>Aplicar</string>
+            </property>
+           </widget>
+           <widget class="QTableWidget" name="tabla_productos_salida">
+            <property name="geometry">
+             <rect>
+              <x>220</x>
+              <y>10</y>
+              <width>311</width>
+              <height>192</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QTableWidget {
+    background-color: #E1D4BB;
+    color: #537188;
+    border: 2px solid #CBB279;
+    border-radius: 5px;
+    margin: 5px;
+    font-size: 14px;
+    gridline-color: #537188;
+}
+
+QTableWidget::item {
+    border: 1px solid #537188;
+}
+
+QTableWidget::item:selected {
+    background-color: #CBB279;
+    color: #E1D4BB;
+}
+
+QHeaderView::section {
+    background-color: #E1D4BB;
+    color: #537188;
+    padding: 5px;
+    border: 2px solid #CBB279;
+    border-radius: 5px;
+    margin: 5px;
+    font-size: 14px;
+}</string>
+            </property>
+            <column>
+             <property name="text">
+              <string>Producto</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Cantidad</string>
+             </property>
+            </column>
+           </widget>
+           <widget class="QPushButton" name="agrega_ingrediente_salida">
+            <property name="geometry">
+             <rect>
+              <x>40</x>
+              <y>190</y>
+              <width>111</width>
+              <height>51</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+    background-color: #E1D4BB;
+    color: #537188;
+    border: 2px solid #CBB279;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    font-size: 14px;
+}
+
+QPushButton:hover {
+    background-color: #CBB279;
+    border: 2px solid #537188;
+}
+
+QPushButton:pressed {
+    background-color: #CBB279;
+    border: 2px solid #537188;
+    padding-left: 7px;
+}</string>
             </property>
             <property name="text">
              <string>Aplicar</string>

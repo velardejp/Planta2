@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>282</width>
+    <height>240</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Nuevo producto</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <property name="spacing">
@@ -56,7 +56,7 @@
       <item>
        <widget class="QFrame" name="backgroundcolor_frame">
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(29, 53, 87);</string>
+         <string notr="true">background-color: #537188;</string>
         </property>
         <property name="frameShape">
          <enum>QFrame::StyledPanel</enum>
@@ -91,44 +91,44 @@
            <widget class="QLineEdit" name="nombre_nuevo_prod">
             <property name="geometry">
              <rect>
-              <x>90</x>
-              <y>60</y>
-              <width>211</width>
-              <height>41</height>
+              <x>10</x>
+              <y>50</y>
+              <width>251</width>
+              <height>51</height>
              </rect>
             </property>
             <property name="styleSheet">
              <string notr="true">QLineEdit {
-        border: 2px solid #457B9D;
-        border-radius: 15px;
-        padding: 5px;
-        background-color: white;
-        color: black;
-        font-size: 16px;
-    }
-    QLineEdit:focus {
-        border: 2px solid #34eb4f;
-    }</string>
+    background-color: #E1D4BB;
+    color: #537188;
+    border: 2px solid #CBB279;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    font-size: 14px;
+}</string>
             </property>
            </widget>
            <widget class="QLabel" name="label">
             <property name="geometry">
              <rect>
-              <x>100</x>
-              <y>20</y>
-              <width>151</width>
-              <height>31</height>
+              <x>10</x>
+              <y>10</y>
+              <width>251</width>
+              <height>41</height>
              </rect>
             </property>
             <property name="styleSheet">
-             <string notr="true">QLabel {
-        color: #ffffff;            /* Color del texto */
-        
-        border: 2px solid #457B9D; /* Color del borde */
-        border-radius: 5px;        /* Radio del borde (para bordes redondeados) */
-        padding: 5px;              /* Espacio interior alrededor del texto */
-        font-size: 14px;           /* Tamaño del texto */
-    }</string>
+             <string notr="true"> QLabel {
+    color: #ffffff;
+    border: 2px solid #537188;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    font-size: 14px;
+    text-align: center;
+    background-color: #CBB279;
+}</string>
             </property>
             <property name="text">
              <string>Nombre</string>
@@ -137,21 +137,34 @@
            <widget class="QRadioButton" name="kilos_radiobutton">
             <property name="geometry">
              <rect>
-              <x>60</x>
-              <y>140</y>
+              <x>10</x>
+              <y>100</y>
               <width>131</width>
-              <height>20</height>
+              <height>41</height>
              </rect>
             </property>
             <property name="styleSheet">
              <string notr="true">QRadioButton {
-        font-size: 16px;
-        color: white;
-    }
-    QRadioButton::indicator {
-        width: 20px;
-        height: 20px;
-    }</string>
+    color: #ffffff;
+    padding: 5px;
+    margin: 5px;
+    font-size: 14px;
+}
+
+QRadioButton::indicator {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #CBB279;
+    border-radius: 10px;  /* radio button size is 20, so radius should be half */
+}
+
+QRadioButton::indicator:checked {
+    background-color: #CBB279;
+}
+
+QRadioButton::indicator:unchecked {
+    background-color: #E1D4BB;
+}</string>
             </property>
             <property name="text">
              <string>Kilogramos</string>
@@ -160,22 +173,34 @@
            <widget class="QRadioButton" name="litros_radiobutton">
             <property name="geometry">
              <rect>
-              <x>200</x>
-              <y>140</y>
-              <width>121</width>
-              <height>20</height>
+              <x>160</x>
+              <y>100</y>
+              <width>131</width>
+              <height>41</height>
              </rect>
             </property>
             <property name="styleSheet">
              <string notr="true">QRadioButton {
-        font-size: 16px;
-        color: white;
-    }
-    QRadioButton::indicator {
-        width: 20px;
-        height: 20px;
-    }
-  </string>
+    color: #ffffff;
+    padding: 5px;
+    margin: 5px;
+    font-size: 14px;
+}
+
+QRadioButton::indicator {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #CBB279;
+    border-radius: 10px;  /* radio button size is 20, so radius should be half */
+}
+
+QRadioButton::indicator:checked {
+    background-color: #CBB279;
+}
+
+QRadioButton::indicator:unchecked {
+    background-color: #E1D4BB;
+}</string>
             </property>
             <property name="text">
              <string>Litros</string>
@@ -184,30 +209,33 @@
            <widget class="QPushButton" name="submit_nuevoproducto_button">
             <property name="geometry">
              <rect>
-              <x>120</x>
-              <y>200</y>
+              <x>70</x>
+              <y>160</y>
               <width>131</width>
               <height>41</height>
              </rect>
             </property>
             <property name="styleSheet">
-             <string notr="true"> QPushButton {
-        background-color: #457B9D;
-        color: #F1FAEE;
-        border: 2px solid #1D3557;
-        border-radius: 5px;
-        padding: 5px;
-        font-size: 14px;
-    }
-    QPushButton:hover {
-        background-color: #1D3557;
-        border: 2px solid #457B9D;
-    }
-    QPushButton:pressed {
-        background-color: #1D3557;
-        border: 2px solid #457B9D;
-        padding-left: 7px;  /* Para dar un efecto de &quot;presión&quot; */
-    }</string>
+             <string notr="true">QPushButton {
+    background-color: #E1D4BB;
+    color: #537188;
+    border: 2px solid #CBB279;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    font-size: 14px;
+}
+
+QPushButton:hover {
+    background-color: #CBB279;
+    border: 2px solid #537188;
+}
+
+QPushButton:pressed {
+    background-color: #CBB279;
+    border: 2px solid #537188;
+    padding-left: 7px;
+}</string>
             </property>
             <property name="text">
              <string>Agregar</string>

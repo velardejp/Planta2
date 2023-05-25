@@ -6,17 +6,19 @@ import sqlite3
 
 class ExitReportForm(QWidget):
     reporte_salidas_submitted = Signal()
-    def __init__(self, parent=None):
+    def __init__(self, add_exit,add_exit_mezcla,parent=None):
         super(ExitReportForm, self).__init__(parent)
         self.ui = Ui_reporte_salidas()
         self.ui.setupUi(self)
         self.get_all_exits()
         self.ui.import_excel_salidas.clicked.connect(self.excel_report)
+        add_exit.exit_submitted.connect(self.get_all_exits)
+        add_exit_mezcla.exit_mezcla_submitted.connect(self.get_all_exits)
 
     def get_all_exits(self):
         conn = sqlite3.connect('inventarioplanta.db')
         c = conn.cursor()
-        result = c.execute("SELECT id,product_id,quantity,date FROM exits")
+        result = c.execute("SELECT id,product_id,quantity,date, mezcla FROM exits")
         self.ui.tabla_salidas.setRowCount(0)
         for row_number, row_data in enumerate(result):
             self.ui.tabla_salidas.insertRow(row_number)

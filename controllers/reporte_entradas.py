@@ -6,12 +6,13 @@ import sqlite3
 
 class EntryReportForm(QWidget):
     reporte_salidas_submitted = Signal()
-    def __init__(self, parent=None):
+    def __init__(self, add_entry,parent=None):
         super(EntryReportForm, self).__init__(parent)
         self.ui = Ui_reporte_entradas()
         self.ui.setupUi(self)
         self.get_all_entrys()
         self.ui.import_excel_entradas.clicked.connect(self.excel_report)
+        add_entry.entry_submitted.connect(self.get_all_entrys)
 
     def get_all_entrys(self):
         conn = sqlite3.connect('inventarioplanta.db')

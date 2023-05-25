@@ -16,9 +16,9 @@ from PySide6.QtGui import (QAction, QBrush, QColor, QConicalGradient,
     QIcon, QImage, QKeySequence, QLinearGradient,
     QPainter, QPalette, QPixmap, QRadialGradient,
     QTransform)
-from PySide6.QtWidgets import (QApplication, QFrame, QLineEdit, QMainWindow,
-    QMenu, QMenuBar, QPlainTextEdit, QPushButton,
-    QSizePolicy, QStatusBar, QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QApplication, QFrame, QMainWindow, QMenu,
+    QMenuBar, QSizePolicy, QStatusBar, QVBoxLayout,
+    QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -27,22 +27,22 @@ class Ui_MainWindow(object):
         MainWindow.resize(835, 507)
         self.action_nuevoproducto = QAction(MainWindow)
         self.action_nuevoproducto.setObjectName(u"action_nuevoproducto")
-        self.action_nuevomezcla = QAction(MainWindow)
-        self.action_nuevomezcla.setObjectName(u"action_nuevomezcla")
         self.action_catalago = QAction(MainWindow)
         self.action_catalago.setObjectName(u"action_catalago")
         self.action_entry = QAction(MainWindow)
         self.action_entry.setObjectName(u"action_entry")
         self.action_exit = QAction(MainWindow)
         self.action_exit.setObjectName(u"action_exit")
-        self.action_exit_mezcla = QAction(MainWindow)
-        self.action_exit_mezcla.setObjectName(u"action_exit_mezcla")
         self.action_report_entradas = QAction(MainWindow)
         self.action_report_entradas.setObjectName(u"action_report_entradas")
         self.action_report_salidas = QAction(MainWindow)
         self.action_report_salidas.setObjectName(u"action_report_salidas")
         self.action_report_kardex = QAction(MainWindow)
         self.action_report_kardex.setObjectName(u"action_report_kardex")
+        self.actionMezcla = QAction(MainWindow)
+        self.actionMezcla.setObjectName(u"actionMezcla")
+        self.actionMezcla_2 = QAction(MainWindow)
+        self.actionMezcla_2.setObjectName(u"actionMezcla_2")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.verticalLayout = QVBoxLayout(self.centralwidget)
@@ -51,7 +51,7 @@ class Ui_MainWindow(object):
         self.verticalLayout.setContentsMargins(0, 0, 0, 0)
         self.background_frame = QFrame(self.centralwidget)
         self.background_frame.setObjectName(u"background_frame")
-        self.background_frame.setStyleSheet(u"background-color: rgb(29, 53, 87);")
+        self.background_frame.setStyleSheet(u"background-color: #537188;")
         self.background_frame.setFrameShape(QFrame.StyledPanel)
         self.background_frame.setFrameShadow(QFrame.Raised)
         self.verticalLayout_2 = QVBoxLayout(self.background_frame)
@@ -62,45 +62,6 @@ class Ui_MainWindow(object):
         self.content_frame.setObjectName(u"content_frame")
         self.content_frame.setFrameShape(QFrame.StyledPanel)
         self.content_frame.setFrameShadow(QFrame.Raised)
-        self.chathistory = QPlainTextEdit(self.content_frame)
-        self.chathistory.setObjectName(u"chathistory")
-        self.chathistory.setGeometry(QRect(500, 20, 301, 301))
-        self.chathistory.setStyleSheet(u"QPlainTextEdit {\n"
-"        background-color: #333;\n"
-"        color: #fff;\n"
-"        border: 2px solid #555;\n"
-"        border-radius: 10px;\n"
-"        font-size: 16px;\n"
-"    }")
-        self.userinput = QLineEdit(self.content_frame)
-        self.userinput.setObjectName(u"userinput")
-        self.userinput.setGeometry(QRect(510, 350, 281, 21))
-        self.userinput.setStyleSheet(u"QLineEdit {\n"
-"        background-color: #333;\n"
-"        color: #fff;\n"
-"        border: none;\n"
-"        border-bottom: 2px solid #555;\n"
-"        font-size: 16px;\n"
-"    }")
-        self.chatbutton = QPushButton(self.content_frame)
-        self.chatbutton.setObjectName(u"chatbutton")
-        self.chatbutton.setGeometry(QRect(570, 390, 171, 51))
-        self.chatbutton.setStyleSheet(u"QPushButton {\n"
-"        background-color: #5c6bc0;\n"
-"        color: #fff;\n"
-"        border: none;\n"
-"        border-radius: 10px;\n"
-"        padding: 5px 10px;\n"
-"        font-size: 16px;\n"
-"    }\n"
-"\n"
-"    QPushButton:hover {\n"
-"        background-color: #7986cb;\n"
-"    }\n"
-"\n"
-"    QPushButton:pressed {\n"
-"        background-color: #3f51b5;\n"
-"    }")
 
         self.verticalLayout_2.addWidget(self.content_frame)
 
@@ -129,11 +90,11 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.menuSalidas.menuAction())
         self.menubar.addAction(self.menuReportes.menuAction())
         self.menuProductos.addAction(self.action_nuevoproducto)
-        self.menuProductos.addAction(self.action_nuevomezcla)
         self.menuProductos.addAction(self.action_catalago)
+        self.menuProductos.addAction(self.actionMezcla)
         self.menuEntradas.addAction(self.action_entry)
         self.menuSalidas.addAction(self.action_exit)
-        self.menuSalidas.addAction(self.action_exit_mezcla)
+        self.menuSalidas.addAction(self.actionMezcla_2)
         self.menuReportes.addAction(self.action_report_entradas)
         self.menuReportes.addAction(self.action_report_salidas)
         self.menuReportes.addAction(self.action_report_kardex)
@@ -144,17 +105,16 @@ class Ui_MainWindow(object):
     # setupUi
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
+        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"Control de Inventario", None))
         self.action_nuevoproducto.setText(QCoreApplication.translate("MainWindow", u"Nuevo", None))
-        self.action_nuevomezcla.setText(QCoreApplication.translate("MainWindow", u"Mezcla", None))
         self.action_catalago.setText(QCoreApplication.translate("MainWindow", u"Catalogo", None))
         self.action_entry.setText(QCoreApplication.translate("MainWindow", u"Nueva", None))
         self.action_exit.setText(QCoreApplication.translate("MainWindow", u"Nueva", None))
-        self.action_exit_mezcla.setText(QCoreApplication.translate("MainWindow", u"Mezcla", None))
         self.action_report_entradas.setText(QCoreApplication.translate("MainWindow", u"Entradas", None))
         self.action_report_salidas.setText(QCoreApplication.translate("MainWindow", u"Salidas", None))
         self.action_report_kardex.setText(QCoreApplication.translate("MainWindow", u"Kardex", None))
-        self.chatbutton.setText(QCoreApplication.translate("MainWindow", u"PushButton", None))
+        self.actionMezcla.setText(QCoreApplication.translate("MainWindow", u"Mezcla", None))
+        self.actionMezcla_2.setText(QCoreApplication.translate("MainWindow", u"Mezcla", None))
         self.menuProductos.setTitle(QCoreApplication.translate("MainWindow", u"Productos", None))
         self.menuEntradas.setTitle(QCoreApplication.translate("MainWindow", u"Entradas", None))
         self.menuSalidas.setTitle(QCoreApplication.translate("MainWindow", u"Salidas", None))

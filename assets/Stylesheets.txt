@@ -1,0 +1,146 @@
+label: QLabel {
+    color: #ffffff;
+    border: 2px solid #537188;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    font-size: 14px;
+    text-align: center;
+    background-color: #CBB279;
+}
+
+ComboBox: QComboBox {
+    background-color: #E1D4BB;
+    color: #537188;
+    border: 2px solid #CBB279;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    font-size: 14px;
+}
+
+QComboBox::drop-down {
+    border: none;
+}
+
+QComboBox::down-arrow {
+    image: url(C:/Users/velar/OneDrive/Escritorio/Planta2/assets/icons8-expand-arrow-24.png);
+}
+
+QComboBox QAbstractItemView {
+    border: 2px solid #537188;
+    selection-background-color: #CBB279;
+}
+
+Spin: QDoubleSpinBox {
+    background-color: #E1D4BB;
+    color: #537188;
+    border: 2px solid #CBB279;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    font-size: 14px;
+}
+
+QDoubleSpinBox::up-button {
+    width: 20px;
+    border: none;
+    background: #537188 url(C:/Users/velar/OneDrive/Escritorio/Planta2/assets/icons8-collapse-arrow-24.png) no-repeat center;
+}
+
+QDoubleSpinBox::down-button {
+    width: 20px;
+    border: none;
+    background: #537188 url(C:/Users/velar/OneDrive/Escritorio/Planta2/assets/icons8-expand-arrow-24.png) no-repeat center;
+}
+
+QDoubleSpinBox::up-button:pressed {
+    background: #CBB279 url(C:/Users/velar/OneDrive/Escritorio/Planta2/assets/icons8-collapse-arrow-24.png) no-repeat center;
+}
+
+QDoubleSpinBox::down-button:pressed {
+    background: #CBB279 url(C:/Users/velar/OneDrive/Escritorio/Planta2/assets/icons8-expand-arrow-24.png) no-repeat center;
+}
+
+button: QPushButton {
+    background-color: #E1D4BB;
+    color: #537188;
+    border: 2px solid #CBB279;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    font-size: 14px;
+}
+
+QPushButton:hover {
+    background-color: #CBB279;
+    border: 2px solid #537188;
+}
+
+QPushButton:pressed {
+    background-color: #CBB279;
+    border: 2px solid #537188;
+    padding-left: 7px;
+}
+Tabla: QTableWidget {
+    background-color: #E1D4BB;
+    color: #537188;
+    border: 2px solid #CBB279;
+    border-radius: 5px;
+    margin: 5px;
+    font-size: 14px;
+    gridline-color: #537188;
+}
+
+QTableWidget::item {
+    border: 1px solid #537188;
+}
+
+QTableWidget::item:selected {
+    background-color: #CBB279;
+    color: #E1D4BB;
+}
+
+QHeaderView::section {
+    background-color: #E1D4BB;
+    color: #537188;
+    padding: 5px;
+    border: 2px solid #CBB279;
+    border-radius: 5px;
+    margin: 5px;
+    font-size: 14px;
+}
+
+text input : QLineEdit {
+    background-color: #E1D4BB;
+    color: #537188;
+    border: 2px solid #CBB279;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    font-size: 14px;
+}
+radiobutton: QRadioButton {
+    color: #537188;
+    padding: 5px;
+    margin: 5px;
+    font-size: 14px;
+}
+
+QRadioButton::indicator {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #CBB279;
+    border-radius: 10px;  /* radio button size is 20, so radius should be half */
+}
+
+QRadioButton::indicator:checked {
+    background-color: #CBB279;
+}
+
+QRadioButton::indicator:unchecked {
+    background-color: #E1D4BB;
+}
+
+background: background-color: #537188;
+

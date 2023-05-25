@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>291</width>
-    <height>235</height>
+    <width>698</width>
+    <height>364</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Form</string>
+   <string>Nueva mezcla</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <property name="spacing">
@@ -56,7 +56,7 @@
       <item>
        <widget class="QFrame" name="backgroundcolor_frame">
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(29, 53, 87);</string>
+         <string notr="true">background-color: #537188;</string>
         </property>
         <property name="frameShape">
          <enum>QFrame::StyledPanel</enum>
@@ -91,21 +91,23 @@
            <widget class="QLabel" name="label">
             <property name="geometry">
              <rect>
-              <x>70</x>
-              <y>30</y>
-              <width>111</width>
+              <x>10</x>
+              <y>20</y>
+              <width>251</width>
               <height>41</height>
              </rect>
             </property>
             <property name="styleSheet">
              <string notr="true">QLabel {
-       color: #ffffff;            /* Color del texto */
-       
-       border: 2px solid #457B9D; /* Color del borde */
-        border-radius: 5px;        /* Radio del borde (para bordes redondeados) */
-        padding: 5px;              /* Espacio interior alrededor del texto */
-        font-size: 14px;           /* Tama\u00f1o del texto */
-    }</string>
+    color: #ffffff;
+    border: 2px solid #537188;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    font-size: 14px;
+    text-align: center;
+    background-color: #CBB279;
+}</string>
             </property>
             <property name="text">
              <string>Nombre</string>
@@ -114,57 +116,247 @@
            <widget class="QLineEdit" name="nombre_mezcla">
             <property name="geometry">
              <rect>
-              <x>30</x>
-              <y>80</y>
-              <width>211</width>
-              <height>31</height>
+              <x>10</x>
+              <y>60</y>
+              <width>251</width>
+              <height>51</height>
              </rect>
             </property>
             <property name="styleSheet">
              <string notr="true">QLineEdit {
-		background-color: rgb(255, 255, 255);
-       
-        color: #FFFFFF;
-        border: 2px solid #457B9D;
-        border-radius: 5px;
-        padding: 5px;
-    }
-
-    QLineEdit:focus {
-        border: 2px solid #E63946;
-    }</string>
+    background-color: #E1D4BB;
+    color: #537188;
+    border: 2px solid #CBB279;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    font-size: 14px;
+}</string>
             </property>
            </widget>
            <widget class="QPushButton" name="submit_mezcla_button">
             <property name="geometry">
              <rect>
-              <x>70</x>
-              <y>120</y>
-              <width>121</width>
+              <x>275</x>
+              <y>260</y>
+              <width>401</width>
+              <height>51</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+    background-color: #E1D4BB;
+    color: #537188;
+    border: 2px solid #CBB279;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    font-size: 14px;
+}
+
+QPushButton:hover {
+    background-color: #CBB279;
+    border: 2px solid #537188;
+}
+
+QPushButton:pressed {
+    background-color: #CBB279;
+    border: 2px solid #537188;
+    padding-left: 7px;
+}</string>
+            </property>
+            <property name="text">
+             <string>Agregar</string>
+            </property>
+           </widget>
+           <widget class="QComboBox" name="ingrediente_nueva_mezcla">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>150</y>
+              <width>251</width>
+              <height>51</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QComboBox {
+    background-color: #E1D4BB;
+    color: #537188;
+    border: 2px solid #CBB279;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    font-size: 14px;
+}
+
+QComboBox::drop-down {
+    border: none;
+}
+
+QComboBox::down-arrow {
+    image: url(C:/Users/velar/OneDrive/Escritorio/Planta2/assets/icons8-expand-arrow-24.png);
+}
+
+QComboBox QAbstractItemView {
+    border: 2px solid #537188;
+    selection-background-color: #CBB279;
+}</string>
+            </property>
+           </widget>
+           <widget class="QLabel" name="label_2">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>110</y>
+              <width>251</width>
               <height>41</height>
              </rect>
             </property>
             <property name="styleSheet">
-             <string notr="true"> QPushButton {
-        background-color: #457B9D;
-        color: #F1FAEE;
-        border: 2px solid #1D3557;
-        border-radius: 5px;
-        padding: 5px;
-        font-size: 14px;
-    }
-    QPushButton:hover {
-        background-color: #1D3557;
-        border: 2px solid #457B9D;
-    }
-    QPushButton:pressed {
-        background-color: #1D3557;
-        border: 2px solid #457B9D;
-        padding-left: 7px;  /* Para dar un efecto de &quot;presión&quot; */
-    }</string>
+             <string notr="true">QLabel {
+    color: #ffffff;
+    border: 2px solid #537188;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    font-size: 14px;
+    text-align: center;
+    background-color: #CBB279;
+}</string>
             </property>
             <property name="text">
-             <string>Agregar</string>
+             <string>Ingredientes</string>
+            </property>
+           </widget>
+           <widget class="QTableWidget" name="tabla_ingredientes">
+            <property name="geometry">
+             <rect>
+              <x>275</x>
+              <y>20</y>
+              <width>401</width>
+              <height>231</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QTableWidget {
+    background-color: #E1D4BB;
+    color: #537188;
+    border: 2px solid #CBB279;
+    border-radius: 5px;
+    margin: 5px;
+    font-size: 14px;
+    gridline-color: #537188;
+}
+
+QTableWidget::item {
+    border: 1px solid #537188;
+}
+
+QTableWidget::item:selected {
+    background-color: #CBB279;
+    color: #E1D4BB;
+}
+
+QHeaderView::section {
+    background-color: #E1D4BB;
+    color: #537188;
+    padding: 5px;
+    border: 2px solid #CBB279;
+    border-radius: 5px;
+    margin: 5px;
+    font-size: 14px;
+}</string>
+            </property>
+            <column>
+             <property name="text">
+              <string>ID</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Ingrediente</string>
+             </property>
+            </column>
+            <column>
+             <property name="text">
+              <string>Cantidad</string>
+             </property>
+            </column>
+           </widget>
+           <widget class="QPushButton" name="agregar_ingrediente">
+            <property name="geometry">
+             <rect>
+              <x>140</x>
+              <y>200</y>
+              <width>121</width>
+              <height>51</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+    background-color: #E1D4BB;
+    color: #537188;
+    border: 2px solid #CBB279;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    font-size: 14px;
+}
+
+QPushButton:hover {
+    background-color: #CBB279;
+    border: 2px solid #537188;
+}
+
+QPushButton:pressed {
+    background-color: #CBB279;
+    border: 2px solid #537188;
+    padding-left: 7px;
+}</string>
+            </property>
+            <property name="text">
+             <string>Añadir</string>
+            </property>
+           </widget>
+           <widget class="QDoubleSpinBox" name="cantidad_ingrediente">
+            <property name="geometry">
+             <rect>
+              <x>10</x>
+              <y>200</y>
+              <width>121</width>
+              <height>51</height>
+             </rect>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QDoubleSpinBox {
+    background-color: #E1D4BB;
+    color: #537188;
+    border: 2px solid #CBB279;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 5px;
+    font-size: 14px;
+}
+
+QDoubleSpinBox::up-button {
+    width: 20px;
+    border: none;
+    background: #537188 url(C:/Users/velar/OneDrive/Escritorio/Planta2/assets/icons8-collapse-arrow-24.png) no-repeat center;
+}
+
+QDoubleSpinBox::down-button {
+    width: 20px;
+    border: none;
+    background: #537188 url(C:/Users/velar/OneDrive/Escritorio/Planta2/assets/icons8-expand-arrow-24.png) no-repeat center;
+}
+
+QDoubleSpinBox::up-button:pressed {
+    background: #CBB279 url(C:/Users/velar/OneDrive/Escritorio/Planta2/assets/icons8-collapse-arrow-24.png) no-repeat center;
+}
+
+QDoubleSpinBox::down-button:pressed {
+    background: #CBB279 url(C:/Users/velar/OneDrive/Escritorio/Planta2/assets/icons8-expand-arrow-24.png) no-repeat center;
+}</string>
             </property>
            </widget>
           </widget>
