@@ -42,9 +42,10 @@ class AddMezclaForm(QWidget):
         id=make_mezcla_prod()
         add_mezcla_data(id, name, unit)
         for row in range(num_rows):
-            ingrediente = self.ui.tabla_ingredientes.item(row, 0).text()
-            cantidad = float(self.ui.tabla_ingredientes.item(row, 2).text())  # convertir la cantidad a un número
-            add_mezcla_ingredient(id, ingrediente,cantidad)
+            id_prod = self.ui.tabla_ingredientes.item(row, 0).text()
+            ingrediente = self.ui.tabla_ingredientes.item(row, 1).text()
+            cantidad = 0  # convertir la cantidad a un número
+            add_mezcla_ingredient(id, id_prod,ingrediente,cantidad)
           # Esto eliminará todos los elementos del QTableWidget
         self.ui.tabla_ingredientes.clearContents()
         self.ui.tabla_ingredientes.setRowCount(0)

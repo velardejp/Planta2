@@ -137,14 +137,12 @@ class Ui_nueva_mezcla_window(object):
 "    background-color: #CBB279;\n"
 "}")
         self.tabla_ingredientes = QTableWidget(self.content_frame)
-        if (self.tabla_ingredientes.columnCount() < 3):
-            self.tabla_ingredientes.setColumnCount(3)
+        if (self.tabla_ingredientes.columnCount() < 2):
+            self.tabla_ingredientes.setColumnCount(2)
         __qtablewidgetitem = QTableWidgetItem()
         self.tabla_ingredientes.setHorizontalHeaderItem(0, __qtablewidgetitem)
         __qtablewidgetitem1 = QTableWidgetItem()
         self.tabla_ingredientes.setHorizontalHeaderItem(1, __qtablewidgetitem1)
-        __qtablewidgetitem2 = QTableWidgetItem()
-        self.tabla_ingredientes.setHorizontalHeaderItem(2, __qtablewidgetitem2)
         self.tabla_ingredientes.setObjectName(u"tabla_ingredientes")
         self.tabla_ingredientes.setGeometry(QRect(275, 20, 401, 231))
         self.tabla_ingredientes.setStyleSheet(u"QTableWidget {\n"
@@ -254,8 +252,6 @@ class Ui_nueva_mezcla_window(object):
         ___qtablewidgetitem.setText(QCoreApplication.translate("nueva_mezcla_window", u"ID", None));
         ___qtablewidgetitem1 = self.tabla_ingredientes.horizontalHeaderItem(1)
         ___qtablewidgetitem1.setText(QCoreApplication.translate("nueva_mezcla_window", u"Ingrediente", None));
-        ___qtablewidgetitem2 = self.tabla_ingredientes.horizontalHeaderItem(2)
-        ___qtablewidgetitem2.setText(QCoreApplication.translate("nueva_mezcla_window", u"Cantidad", None));
         self.agregar_ingrediente.setText(QCoreApplication.translate("nueva_mezcla_window", u"A\u00f1adir", None))
     # retranslateUi
 

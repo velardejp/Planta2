@@ -1,4 +1,5 @@
 import sqlite3
+from PySide6.QtWidgets import QMessageBox
 import datetime
 conn = sqlite3.connect('inventarioplanta.db')
 c = conn.cursor()
@@ -23,6 +24,7 @@ c.execute('''
     CREATE TABLE IF NOT EXISTS mezcla_ingrediente (
   mezcla_id TEXT,
   products_id TEXT,
+  product_name TEXT,
   cantidad REAL,
   FOREIGN KEY(mezcla_id) REFERENCES mezcla(id),
   FOREIGN KEY(products_id) REFERENCES products(id),
@@ -52,6 +54,16 @@ c.execute('''
         FOREIGN KEY(product_id) REFERENCES products(id)
     )
 ''')
+c.execute('''
+    CREATE TABLE IF NOT EXISTS exits_mezcla(
+        folio INTEGER PRIMARY KEY AUTOINCREMENT,
+        id TEXT,
+        mezcla_id TEXT,
+        quantity REAL,
+        date TEXT,
+        FOREIGN KEY(mezcla_id) REFERENCES mezcla(id)
+    )
+''')
 conn.commit()
 conn.close()
 
@@ -73,10 +85,10 @@ def add_product_data(id, name, unit):
     c.execute("INSERT OR IGNORE INTO products (id, name, unit) VALUES (?, ?, ?)", (id, name, unit))
     conn.commit()
     conn.close()
-def add_mezcla_ingredient(id_mezcla, id_producto, cantidad):
+def add_mezcla_ingredient(id_mezcla, id_producto, name_product,cantidad):
     conn = sqlite3.connect('inventarioplanta.db')
     c = conn.cursor()
-    c.execute("INSERT OR IGNORE INTO mezcla_ingrediente (mezcla_id, products_id, cantidad) VALUES (?, ?, ?)", (id_mezcla, id_producto, cantidad))
+    c.execute("INSERT OR IGNORE INTO mezcla_ingrediente (mezcla_id, products_id, product_name,cantidad) VALUES (?, ?,?, ?)", (id_mezcla, id_producto, name_product,cantidad))
     conn.commit()
     conn.close()
 def add_mezcla_data(id, name, unit):
@@ -111,15 +123,39 @@ def add_entry(id, product_name, quantity):
     conn.commit()
     conn.close()
 
-def add_exit(id, product_name, quantity_out, mezcla):
+def add_exit_mezcla(id, mezcla_name, quantity):
+    conn = sqlite3.connect('inventarioplanta.db')
+    c = conn.cursor()
+    entry_date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    c.execute("INSERT INTO exits_mezcla (id, mezcla_id, quantity, date) VALUES (?, ?, ?, ?)",
+              (id, mezcla_name, quantity, entry_date))
+    conn.commit()
+    conn.close()
 
+def add_exit(id, product_name, quantity_out, mezcla):
     conn = sqlite3.connect('inventarioplanta.db')
     c = conn.cursor()
     exit_date = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    
+    # Obtener el stock actual del producto
+    c.execute("SELECT stock FROM products WHERE name = ?", (product_name,))
+    current_stock = c.fetchone()[0]
+    
+    if current_stock < quantity_out:
+        # Mostrar mensaje emergente
+        message_box = QMessageBox()
+        message_box.setWindowTitle("Error")
+        message_box.setText("No hay suficiente stock disponible para la salida del producto.")
+        message_box.setIcon(QMessageBox.Warning)
+        message_box.exec()
+        return
+    
     c.execute("INSERT INTO exits (id, product_id, quantity, date, mezcla) VALUES (?, ?, ?, ?, ?)",
               (id, product_name, quantity_out, exit_date, mezcla))
-    # Obtiene la cantidad actual en stock
+    
+    # Actualizar el stock del producto
     c.execute("UPDATE products SET stock = stock - ? WHERE name = ?", (float(quantity_out), product_name))
+    
     conn.commit()
     conn.close()
 
@@ -142,7 +178,7 @@ def make_id_prod():
 def make_mezcla_prod():
     conn = sqlite3.connect('inventarioplanta.db')
     c = conn.cursor()
-    c.execute("SELECT id FROM products WHERE id LIKE 'M%' ORDER BY id DESC LIMIT 1")
+    c.execute("SELECT id FROM mezcla WHERE id LIKE 'M%' ORDER BY id DESC LIMIT 1")
     ultimo = c.fetchone()
     if ultimo is not None:
         cadena = ultimo[0][1:]  
@@ -184,3 +220,12 @@ def make_id_exit():
     conn.commit()
     conn.close()
     return id
+
+def mas_salidas():
+    conn = sqlite3.connect('inventarioplanta.db')
+    c = conn.cursor()
+    c.execute("SELECT product_id FROM exits GROUP BY product_id ORDER BY COUNT(*) DESC LIMIT 1")
+    result = c.fetchone()
+    conn.commit()
+    conn.close()
+    return result

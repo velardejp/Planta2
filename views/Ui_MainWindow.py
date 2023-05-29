@@ -16,8 +16,9 @@ from PySide6.QtGui import (QAction, QBrush, QColor, QConicalGradient,
     QIcon, QImage, QKeySequence, QLinearGradient,
     QPainter, QPalette, QPixmap, QRadialGradient,
     QTransform)
-from PySide6.QtWidgets import (QApplication, QFrame, QMainWindow, QMenu,
-    QMenuBar, QSizePolicy, QStatusBar, QVBoxLayout,
+from PySide6.QtWidgets import (QApplication, QFrame, QHeaderView, QLabel,
+    QMainWindow, QMenu, QMenuBar, QSizePolicy,
+    QStatusBar, QTableWidget, QTableWidgetItem, QVBoxLayout,
     QWidget)
 
 class Ui_MainWindow(object):
@@ -62,6 +63,51 @@ class Ui_MainWindow(object):
         self.content_frame.setObjectName(u"content_frame")
         self.content_frame.setFrameShape(QFrame.StyledPanel)
         self.content_frame.setFrameShadow(QFrame.Raised)
+        self.grafico_1 = QFrame(self.content_frame)
+        self.grafico_1.setObjectName(u"grafico_1")
+        self.grafico_1.setGeometry(QRect(430, 0, 381, 211))
+        self.grafico_1.setFrameShape(QFrame.StyledPanel)
+        self.grafico_1.setFrameShadow(QFrame.Raised)
+        self.tabla_stock = QTableWidget(self.content_frame)
+        if (self.tabla_stock.columnCount() < 2):
+            self.tabla_stock.setColumnCount(2)
+        __qtablewidgetitem = QTableWidgetItem()
+        self.tabla_stock.setHorizontalHeaderItem(0, __qtablewidgetitem)
+        __qtablewidgetitem1 = QTableWidgetItem()
+        self.tabla_stock.setHorizontalHeaderItem(1, __qtablewidgetitem1)
+        self.tabla_stock.setObjectName(u"tabla_stock")
+        self.tabla_stock.setGeometry(QRect(25, 31, 311, 411))
+        self.tabla_stock.setStyleSheet(u"QTableWidget {\n"
+"    background-color: #E1D4BB;\n"
+"    color: #537188;\n"
+"    border: 2px solid #CBB279;\n"
+"    border-radius: 5px;\n"
+"    margin: 5px;\n"
+"    font-size: 14px;\n"
+"    gridline-color: #537188;\n"
+"}\n"
+"\n"
+"QTableWidget::item {\n"
+"    border: 1px solid #537188;\n"
+"}\n"
+"\n"
+"QTableWidget::item:selected {\n"
+"    background-color: #CBB279;\n"
+"    color: #E1D4BB;\n"
+"}\n"
+"\n"
+"QHeaderView::section {\n"
+"    background-color: #E1D4BB;\n"
+"    color: #537188;\n"
+"    padding: 5px;\n"
+"    border: 2px solid #CBB279;\n"
+"    border-radius: 5px;\n"
+"    margin: 5px;\n"
+"    font-size: 14px;\n"
+"}")
+        self.mas_salidas = QLabel(self.content_frame)
+        self.mas_salidas.setObjectName(u"mas_salidas")
+        self.mas_salidas.setGeometry(QRect(430, 290, 111, 81))
 
         self.verticalLayout_2.addWidget(self.content_frame)
 
@@ -115,6 +161,11 @@ class Ui_MainWindow(object):
         self.action_report_kardex.setText(QCoreApplication.translate("MainWindow", u"Kardex", None))
         self.actionMezcla.setText(QCoreApplication.translate("MainWindow", u"Mezcla", None))
         self.actionMezcla_2.setText(QCoreApplication.translate("MainWindow", u"Mezcla", None))
+        ___qtablewidgetitem = self.tabla_stock.horizontalHeaderItem(0)
+        ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"Producto", None));
+        ___qtablewidgetitem1 = self.tabla_stock.horizontalHeaderItem(1)
+        ___qtablewidgetitem1.setText(QCoreApplication.translate("MainWindow", u"Stock", None));
+        self.mas_salidas.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
         self.menuProductos.setTitle(QCoreApplication.translate("MainWindow", u"Productos", None))
         self.menuEntradas.setTitle(QCoreApplication.translate("MainWindow", u"Entradas", None))
         self.menuSalidas.setTitle(QCoreApplication.translate("MainWindow", u"Salidas", None))

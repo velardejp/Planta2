@@ -277,11 +277,6 @@ QHeaderView::section {
               <string>Ingrediente</string>
              </property>
             </column>
-            <column>
-             <property name="text">
-              <string>Cantidad</string>
-             </property>
-            </column>
            </widget>
            <widget class="QPushButton" name="agregar_ingrediente">
             <property name="geometry">

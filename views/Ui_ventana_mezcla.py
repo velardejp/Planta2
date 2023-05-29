@@ -23,7 +23,7 @@ class Ui_exit_mezcla_window(object):
     def setupUi(self, exit_mezcla_window):
         if not exit_mezcla_window.objectName():
             exit_mezcla_window.setObjectName(u"exit_mezcla_window")
-        exit_mezcla_window.resize(339, 505)
+        exit_mezcla_window.resize(341, 505)
         self.verticalLayout = QVBoxLayout(exit_mezcla_window)
         self.verticalLayout.setSpacing(0)
         self.verticalLayout.setObjectName(u"verticalLayout")
@@ -51,7 +51,7 @@ class Ui_exit_mezcla_window(object):
         self.content_frame.setFrameShadow(QFrame.Raised)
         self.productos_para_mezcla = QComboBox(self.content_frame)
         self.productos_para_mezcla.setObjectName(u"productos_para_mezcla")
-        self.productos_para_mezcla.setGeometry(QRect(10, 150, 201, 51))
+        self.productos_para_mezcla.setGeometry(QRect(10, 140, 211, 51))
         self.productos_para_mezcla.setStyleSheet(u"QComboBox {\n"
 "    background-color: #E1D4BB;\n"
 "    color: #537188;\n"
@@ -74,9 +74,10 @@ class Ui_exit_mezcla_window(object):
 "    border: 2px solid #537188;\n"
 "    selection-background-color: #CBB279;\n"
 "}")
+        self.productos_para_mezcla.setEditable(True)
         self.label = QLabel(self.content_frame)
         self.label.setObjectName(u"label")
-        self.label.setGeometry(QRect(10, 110, 201, 43))
+        self.label.setGeometry(QRect(10, 100, 211, 43))
         self.label.setLayoutDirection(Qt.LeftToRight)
         self.label.setStyleSheet(u"QLabel {\n"
 "    color: #ffffff;\n"
@@ -90,7 +91,7 @@ class Ui_exit_mezcla_window(object):
 "}")
         self.cantidad_exit_paramezcla = QDoubleSpinBox(self.content_frame)
         self.cantidad_exit_paramezcla.setObjectName(u"cantidad_exit_paramezcla")
-        self.cantidad_exit_paramezcla.setGeometry(QRect(220, 150, 101, 51))
+        self.cantidad_exit_paramezcla.setGeometry(QRect(220, 140, 101, 51))
         self.cantidad_exit_paramezcla.setStyleSheet(u"QDoubleSpinBox {\n"
 "    background-color: #E1D4BB;\n"
 "    color: #537188;\n"
@@ -120,9 +121,10 @@ class Ui_exit_mezcla_window(object):
 "QDoubleSpinBox::down-button:pressed {\n"
 "    background: #CBB279 url(C:/Users/velar/OneDrive/Escritorio/Planta2/assets/icons8-expand-arrow-24.png) no-repeat center;\n"
 "}")
+        self.cantidad_exit_paramezcla.setMaximum(9999.989999999999782)
         self.label_2 = QLabel(self.content_frame)
         self.label_2.setObjectName(u"label_2")
-        self.label_2.setGeometry(QRect(220, 110, 101, 43))
+        self.label_2.setGeometry(QRect(220, 100, 101, 43))
         self.label_2.setLayoutDirection(Qt.LeftToRight)
         self.label_2.setStyleSheet(u"QLabel {\n"
 "    color: #ffffff;\n"
@@ -136,7 +138,7 @@ class Ui_exit_mezcla_window(object):
 "}")
         self.submit_exit_mezcla = QPushButton(self.content_frame)
         self.submit_exit_mezcla.setObjectName(u"submit_exit_mezcla")
-        self.submit_exit_mezcla.setGeometry(QRect(100, 430, 131, 51))
+        self.submit_exit_mezcla.setGeometry(QRect(90, 420, 131, 51))
         self.submit_exit_mezcla.setStyleSheet(u"QPushButton {\n"
 "    background-color: #E1D4BB;\n"
 "    color: #537188;\n"
@@ -165,10 +167,7 @@ class Ui_exit_mezcla_window(object):
         __qtablewidgetitem1 = QTableWidgetItem()
         self.ingredientes_mezcla.setHorizontalHeaderItem(1, __qtablewidgetitem1)
         self.ingredientes_mezcla.setObjectName(u"ingredientes_mezcla")
-        self.ingredientes_mezcla.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
-        # Oculta el índice de la tabla.
-        self.ingredientes_mezcla.verticalHeader().setVisible(False)
-        self.ingredientes_mezcla.setGeometry(QRect(10, 240, 311, 192))
+        self.ingredientes_mezcla.setGeometry(QRect(10, 230, 311, 192))
         self.ingredientes_mezcla.setStyleSheet(u"QTableWidget {\n"
 "    background-color: #E1D4BB;\n"
 "    color: #537188;\n"
@@ -199,7 +198,7 @@ class Ui_exit_mezcla_window(object):
 "}")
         self.mezcla_combobox = QComboBox(self.content_frame)
         self.mezcla_combobox.setObjectName(u"mezcla_combobox")
-        self.mezcla_combobox.setGeometry(QRect(10, 50, 311, 51))
+        self.mezcla_combobox.setGeometry(QRect(10, 50, 211, 51))
         self.mezcla_combobox.setStyleSheet(u"QComboBox {\n"
 "    background-color: #E1D4BB;\n"
 "    color: #537188;\n"
@@ -222,9 +221,10 @@ class Ui_exit_mezcla_window(object):
 "    border: 2px solid #537188;\n"
 "    selection-background-color: #CBB279;\n"
 "}")
+        self.mezcla_combobox.setEditable(True)
         self.label_3 = QLabel(self.content_frame)
         self.label_3.setObjectName(u"label_3")
-        self.label_3.setGeometry(QRect(10, 10, 311, 43))
+        self.label_3.setGeometry(QRect(10, 10, 211, 43))
         self.label_3.setLayoutDirection(Qt.LeftToRight)
         self.label_3.setStyleSheet(u"QLabel {\n"
 "    color: #ffffff;\n"
@@ -238,7 +238,7 @@ class Ui_exit_mezcla_window(object):
 "}")
         self.agregar_ingrediente = QPushButton(self.content_frame)
         self.agregar_ingrediente.setObjectName(u"agregar_ingrediente")
-        self.agregar_ingrediente.setGeometry(QRect(10, 200, 311, 41))
+        self.agregar_ingrediente.setGeometry(QRect(10, 190, 311, 41))
         self.agregar_ingrediente.setStyleSheet(u"QPushButton {\n"
 "    background-color: #E1D4BB;\n"
 "    color: #537188;\n"
@@ -259,6 +259,53 @@ class Ui_exit_mezcla_window(object):
 "    border: 2px solid #537188;\n"
 "    padding-left: 7px;\n"
 "}")
+        self.label_4 = QLabel(self.content_frame)
+        self.label_4.setObjectName(u"label_4")
+        self.label_4.setGeometry(QRect(220, 10, 101, 43))
+        self.label_4.setLayoutDirection(Qt.LeftToRight)
+        self.label_4.setStyleSheet(u"QLabel {\n"
+"    color: #ffffff;\n"
+"    border: 2px solid #537188;\n"
+"    border-radius: 5px;\n"
+"    padding: 5px;\n"
+"    margin: 5px;\n"
+"    font-size: 14px;\n"
+"    text-align: center;\n"
+"    background-color: #CBB279;\n"
+"}")
+        self.cantidad_mezcla = QDoubleSpinBox(self.content_frame)
+        self.cantidad_mezcla.setObjectName(u"cantidad_mezcla")
+        self.cantidad_mezcla.setGeometry(QRect(220, 50, 101, 51))
+        self.cantidad_mezcla.setStyleSheet(u"QDoubleSpinBox {\n"
+"    background-color: #E1D4BB;\n"
+"    color: #537188;\n"
+"    border: 2px solid #CBB279;\n"
+"    border-radius: 5px;\n"
+"    padding: 5px;\n"
+"    margin: 5px;\n"
+"    font-size: 14px;\n"
+"}\n"
+"\n"
+"QDoubleSpinBox::up-button {\n"
+"    width: 20px;\n"
+"    border: none;\n"
+"    background: #537188 url(C:/Users/velar/OneDrive/Escritorio/Planta2/assets/icons8-collapse-arrow-24.png) no-repeat center;\n"
+"}\n"
+"\n"
+"QDoubleSpinBox::down-button {\n"
+"    width: 20px;\n"
+"    border: none;\n"
+"    background: #537188 url(C:/Users/velar/OneDrive/Escritorio/Planta2/assets/icons8-expand-arrow-24.png) no-repeat center;\n"
+"}\n"
+"\n"
+"QDoubleSpinBox::up-button:pressed {\n"
+"    background: #CBB279 url(C:/Users/velar/OneDrive/Escritorio/Planta2/assets/icons8-collapse-arrow-24.png) no-repeat center;\n"
+"}\n"
+"\n"
+"QDoubleSpinBox::down-button:pressed {\n"
+"    background: #CBB279 url(C:/Users/velar/OneDrive/Escritorio/Planta2/assets/icons8-expand-arrow-24.png) no-repeat center;\n"
+"}")
+        self.cantidad_mezcla.setMaximum(9999.989999999999782)
 
         self.verticalLayout_3.addWidget(self.content_frame)
 
@@ -283,7 +330,9 @@ class Ui_exit_mezcla_window(object):
         ___qtablewidgetitem.setText(QCoreApplication.translate("exit_mezcla_window", u"Ingrediente", None));
         ___qtablewidgetitem1 = self.ingredientes_mezcla.horizontalHeaderItem(1)
         ___qtablewidgetitem1.setText(QCoreApplication.translate("exit_mezcla_window", u"Cantidad", None));
+        self.mezcla_combobox.setPlaceholderText(QCoreApplication.translate("exit_mezcla_window", u"mezclas", None))
         self.label_3.setText(QCoreApplication.translate("exit_mezcla_window", u"MEZCLA", None))
         self.agregar_ingrediente.setText(QCoreApplication.translate("exit_mezcla_window", u"Agregar", None))
+        self.label_4.setText(QCoreApplication.translate("exit_mezcla_window", u"CANTIDAD", None))
     # retranslateUi
 

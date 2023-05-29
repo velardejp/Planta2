@@ -3,7 +3,7 @@ from views.Ui_ventana_mezcla import Ui_exit_mezcla_window
 import datetime
 from PySide6.QtCore import Signal
 import sqlite3
-from database.db import get_all_products, add_exit, get_all_mezclas, make_id_exit
+from database.db import get_all_products, add_exit, get_all_mezclas, make_id_exit,add_exit_mezcla
 
 
 class ExitMezclaForm(QWidget):
@@ -14,14 +14,15 @@ class ExitMezclaForm(QWidget):
         self.ui = Ui_exit_mezcla_window()
         self.ui.setupUi(self)
 
-        self.ui.productos_para_mezcla.addItems([product[0] for product in get_all_products()])
+        
         products = get_all_mezclas()
         for mezclas in products:
             mezcla_name = mezclas[0]
             mezcla_id = mezclas[1]
             self.ui.mezcla_combobox.addItem(mezcla_name, mezcla_id)
         self.get_all_ingredients()
-        
+        self.ui.mezcla_combobox.currentTextChanged.connect(self.get_all_ingredients)
+        self.ui.productos_para_mezcla.addItems([product[0] for product in get_all_products()])
         self.ui.agregar_ingrediente.clicked.connect(self.agregar_ingrediente)
         self.ui.submit_exit_mezcla.clicked.connect(self.submit_exit_mezcla_process)
         add_product.product_submitted.connect(self.load_mezcla_data)
@@ -44,10 +45,12 @@ class ExitMezclaForm(QWidget):
     def submit_exit_mezcla_process(self):
         num_rows = self.ui.ingredientes_mezcla.rowCount()
         id=make_id_exit()
+        mezcla_quantity=self.ui.cantidad_mezcla.value()
+        mezcla=self.ui.mezcla_combobox.currentText()
+        add_exit_mezcla(id,mezcla,mezcla_quantity)
         for row in range(num_rows):
             ingrediente = self.ui.ingredientes_mezcla.item(row, 0).text()
             cantidad = float(self.ui.ingredientes_mezcla.item(row, 1).text())  # convertir la cantidad a un número
-            mezcla=self.ui.mezcla_combobox.currentText()
             add_exit(id, ingrediente,cantidad,mezcla)
         self.ui.ingredientes_mezcla.clearContents()
         self.ui.ingredientes_mezcla.setRowCount(0)
@@ -57,7 +60,7 @@ class ExitMezclaForm(QWidget):
         conn = sqlite3.connect('inventarioplanta.db')
         c = conn.cursor()
         id=self.ui.mezcla_combobox.currentData()
-        result = c.execute("SELECT products_id FROM mezcla_ingrediente WHERE mezcla_id=?",(id,))
+        result = c.execute("SELECT product_name, cantidad FROM mezcla_ingrediente WHERE mezcla_id=?",(id,))
         self.ui.ingredientes_mezcla.setRowCount(0)
         for row_number, row_data in enumerate(result):
             self.ui.ingredientes_mezcla.insertRow(row_number)
