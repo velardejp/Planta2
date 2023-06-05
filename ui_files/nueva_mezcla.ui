@@ -281,8 +281,8 @@ QHeaderView::section {
            <widget class="QPushButton" name="agregar_ingrediente">
             <property name="geometry">
              <rect>
-              <x>140</x>
-              <y>200</y>
+              <x>80</x>
+              <y>210</y>
               <width>121</width>
               <height>51</height>
              </rect>
@@ -311,47 +311,6 @@ QPushButton:pressed {
             </property>
             <property name="text">
              <string>Añadir</string>
-            </property>
-           </widget>
-           <widget class="QDoubleSpinBox" name="cantidad_ingrediente">
-            <property name="geometry">
-             <rect>
-              <x>10</x>
-              <y>200</y>
-              <width>121</width>
-              <height>51</height>
-             </rect>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">QDoubleSpinBox {
-    background-color: #E1D4BB;
-    color: #537188;
-    border: 2px solid #CBB279;
-    border-radius: 5px;
-    padding: 5px;
-    margin: 5px;
-    font-size: 14px;
-}
-
-QDoubleSpinBox::up-button {
-    width: 20px;
-    border: none;
-    background: #537188 url(C:/Users/velar/OneDrive/Escritorio/Planta2/assets/icons8-collapse-arrow-24.png) no-repeat center;
-}
-
-QDoubleSpinBox::down-button {
-    width: 20px;
-    border: none;
-    background: #537188 url(C:/Users/velar/OneDrive/Escritorio/Planta2/assets/icons8-expand-arrow-24.png) no-repeat center;
-}
-
-QDoubleSpinBox::up-button:pressed {
-    background: #CBB279 url(C:/Users/velar/OneDrive/Escritorio/Planta2/assets/icons8-collapse-arrow-24.png) no-repeat center;
-}
-
-QDoubleSpinBox::down-button:pressed {
-    background: #CBB279 url(C:/Users/velar/OneDrive/Escritorio/Planta2/assets/icons8-expand-arrow-24.png) no-repeat center;
-}</string>
             </property>
            </widget>
           </widget>

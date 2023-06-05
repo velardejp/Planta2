@@ -23,7 +23,7 @@ class Ui_exit_mezcla_window(object):
     def setupUi(self, exit_mezcla_window):
         if not exit_mezcla_window.objectName():
             exit_mezcla_window.setObjectName(u"exit_mezcla_window")
-        exit_mezcla_window.resize(341, 505)
+        exit_mezcla_window.resize(366, 545)
         self.verticalLayout = QVBoxLayout(exit_mezcla_window)
         self.verticalLayout.setSpacing(0)
         self.verticalLayout.setObjectName(u"verticalLayout")
@@ -91,7 +91,7 @@ class Ui_exit_mezcla_window(object):
 "}")
         self.cantidad_exit_paramezcla = QDoubleSpinBox(self.content_frame)
         self.cantidad_exit_paramezcla.setObjectName(u"cantidad_exit_paramezcla")
-        self.cantidad_exit_paramezcla.setGeometry(QRect(220, 140, 101, 51))
+        self.cantidad_exit_paramezcla.setGeometry(QRect(220, 140, 131, 51))
         self.cantidad_exit_paramezcla.setStyleSheet(u"QDoubleSpinBox {\n"
 "    background-color: #E1D4BB;\n"
 "    color: #537188;\n"
@@ -124,7 +124,7 @@ class Ui_exit_mezcla_window(object):
         self.cantidad_exit_paramezcla.setMaximum(9999.989999999999782)
         self.label_2 = QLabel(self.content_frame)
         self.label_2.setObjectName(u"label_2")
-        self.label_2.setGeometry(QRect(220, 100, 101, 43))
+        self.label_2.setGeometry(QRect(220, 100, 131, 43))
         self.label_2.setLayoutDirection(Qt.LeftToRight)
         self.label_2.setStyleSheet(u"QLabel {\n"
 "    color: #ffffff;\n"
@@ -138,7 +138,7 @@ class Ui_exit_mezcla_window(object):
 "}")
         self.submit_exit_mezcla = QPushButton(self.content_frame)
         self.submit_exit_mezcla.setObjectName(u"submit_exit_mezcla")
-        self.submit_exit_mezcla.setGeometry(QRect(90, 420, 131, 51))
+        self.submit_exit_mezcla.setGeometry(QRect(220, 470, 131, 51))
         self.submit_exit_mezcla.setStyleSheet(u"QPushButton {\n"
 "    background-color: #E1D4BB;\n"
 "    color: #537188;\n"
@@ -160,14 +160,19 @@ class Ui_exit_mezcla_window(object):
 "    padding-left: 7px;\n"
 "}")
         self.ingredientes_mezcla = QTableWidget(self.content_frame)
-        if (self.ingredientes_mezcla.columnCount() < 2):
-            self.ingredientes_mezcla.setColumnCount(2)
+        if (self.ingredientes_mezcla.columnCount() < 3):
+            self.ingredientes_mezcla.setColumnCount(3)
         __qtablewidgetitem = QTableWidgetItem()
         self.ingredientes_mezcla.setHorizontalHeaderItem(0, __qtablewidgetitem)
         __qtablewidgetitem1 = QTableWidgetItem()
         self.ingredientes_mezcla.setHorizontalHeaderItem(1, __qtablewidgetitem1)
+        __qtablewidgetitem2 = QTableWidgetItem()
+        self.ingredientes_mezcla.setHorizontalHeaderItem(2, __qtablewidgetitem2)
         self.ingredientes_mezcla.setObjectName(u"ingredientes_mezcla")
-        self.ingredientes_mezcla.setGeometry(QRect(10, 230, 311, 192))
+        self.ingredientes_mezcla.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+        # Oculta el índice de la tabla.
+        self.ingredientes_mezcla.verticalHeader().setVisible(False)
+        self.ingredientes_mezcla.setGeometry(QRect(10, 230, 341, 192))
         self.ingredientes_mezcla.setStyleSheet(u"QTableWidget {\n"
 "    background-color: #E1D4BB;\n"
 "    color: #537188;\n"
@@ -238,7 +243,7 @@ class Ui_exit_mezcla_window(object):
 "}")
         self.agregar_ingrediente = QPushButton(self.content_frame)
         self.agregar_ingrediente.setObjectName(u"agregar_ingrediente")
-        self.agregar_ingrediente.setGeometry(QRect(10, 190, 311, 41))
+        self.agregar_ingrediente.setGeometry(QRect(10, 190, 341, 41))
         self.agregar_ingrediente.setStyleSheet(u"QPushButton {\n"
 "    background-color: #E1D4BB;\n"
 "    color: #537188;\n"
@@ -261,7 +266,7 @@ class Ui_exit_mezcla_window(object):
 "}")
         self.label_4 = QLabel(self.content_frame)
         self.label_4.setObjectName(u"label_4")
-        self.label_4.setGeometry(QRect(220, 10, 101, 43))
+        self.label_4.setGeometry(QRect(220, 10, 131, 43))
         self.label_4.setLayoutDirection(Qt.LeftToRight)
         self.label_4.setStyleSheet(u"QLabel {\n"
 "    color: #ffffff;\n"
@@ -275,7 +280,7 @@ class Ui_exit_mezcla_window(object):
 "}")
         self.cantidad_mezcla = QDoubleSpinBox(self.content_frame)
         self.cantidad_mezcla.setObjectName(u"cantidad_mezcla")
-        self.cantidad_mezcla.setGeometry(QRect(220, 50, 101, 51))
+        self.cantidad_mezcla.setGeometry(QRect(220, 50, 131, 51))
         self.cantidad_mezcla.setStyleSheet(u"QDoubleSpinBox {\n"
 "    background-color: #E1D4BB;\n"
 "    color: #537188;\n"
@@ -306,6 +311,67 @@ class Ui_exit_mezcla_window(object):
 "    background: #CBB279 url(C:/Users/velar/OneDrive/Escritorio/Planta2/assets/icons8-expand-arrow-24.png) no-repeat center;\n"
 "}")
         self.cantidad_mezcla.setMaximum(9999.989999999999782)
+        self.cantidad_sacos = QDoubleSpinBox(self.content_frame)
+        self.cantidad_sacos.setObjectName(u"cantidad_sacos")
+        self.cantidad_sacos.setGeometry(QRect(120, 470, 101, 51))
+        self.cantidad_sacos.setStyleSheet(u"QDoubleSpinBox {\n"
+"    background-color: #E1D4BB;\n"
+"    color: #537188;\n"
+"    border: 2px solid #CBB279;\n"
+"    border-radius: 5px;\n"
+"    padding: 5px;\n"
+"    margin: 5px;\n"
+"    font-size: 14px;\n"
+"}\n"
+"\n"
+"QDoubleSpinBox::up-button {\n"
+"    width: 20px;\n"
+"    border: none;\n"
+"    background: #537188 url(C:/Users/velar/OneDrive/Escritorio/Planta2/assets/icons8-collapse-arrow-24.png) no-repeat center;\n"
+"}\n"
+"\n"
+"QDoubleSpinBox::down-button {\n"
+"    width: 20px;\n"
+"    border: none;\n"
+"    background: #537188 url(C:/Users/velar/OneDrive/Escritorio/Planta2/assets/icons8-expand-arrow-24.png) no-repeat center;\n"
+"}\n"
+"\n"
+"QDoubleSpinBox::up-button:pressed {\n"
+"    background: #CBB279 url(C:/Users/velar/OneDrive/Escritorio/Planta2/assets/icons8-collapse-arrow-24.png) no-repeat center;\n"
+"}\n"
+"\n"
+"QDoubleSpinBox::down-button:pressed {\n"
+"    background: #CBB279 url(C:/Users/velar/OneDrive/Escritorio/Planta2/assets/icons8-expand-arrow-24.png) no-repeat center;\n"
+"}")
+        self.cantidad_sacos.setMaximum(9999.989999999999782)
+        self.label_5 = QLabel(self.content_frame)
+        self.label_5.setObjectName(u"label_5")
+        self.label_5.setGeometry(QRect(20, 470, 101, 43))
+        self.label_5.setLayoutDirection(Qt.LeftToRight)
+        self.label_5.setStyleSheet(u"QLabel {\n"
+"    color: #ffffff;\n"
+"    border: 2px solid #537188;\n"
+"    border-radius: 5px;\n"
+"    padding: 5px;\n"
+"    margin: 5px;\n"
+"    font-size: 14px;\n"
+"    text-align: center;\n"
+"    background-color: #CBB279;\n"
+"}")
+        self.porcentaje = QLabel(self.content_frame)
+        self.porcentaje.setObjectName(u"porcentaje")
+        self.porcentaje.setGeometry(QRect(20, 420, 321, 43))
+        self.porcentaje.setLayoutDirection(Qt.LeftToRight)
+        self.porcentaje.setStyleSheet(u"QLabel {\n"
+"    color: #ffffff;\n"
+"    border: 2px solid #537188;\n"
+"    border-radius: 5px;\n"
+"    padding: 5px;\n"
+"    margin: 5px;\n"
+"    font-size: 14px;\n"
+"    text-align: center;\n"
+"    background-color: #CBB279;\n"
+"}")
 
         self.verticalLayout_3.addWidget(self.content_frame)
 
@@ -330,9 +396,13 @@ class Ui_exit_mezcla_window(object):
         ___qtablewidgetitem.setText(QCoreApplication.translate("exit_mezcla_window", u"Ingrediente", None));
         ___qtablewidgetitem1 = self.ingredientes_mezcla.horizontalHeaderItem(1)
         ___qtablewidgetitem1.setText(QCoreApplication.translate("exit_mezcla_window", u"Cantidad", None));
+        ___qtablewidgetitem2 = self.ingredientes_mezcla.horizontalHeaderItem(2)
+        ___qtablewidgetitem2.setText(QCoreApplication.translate("exit_mezcla_window", u"%", None));
         self.mezcla_combobox.setPlaceholderText(QCoreApplication.translate("exit_mezcla_window", u"mezclas", None))
         self.label_3.setText(QCoreApplication.translate("exit_mezcla_window", u"MEZCLA", None))
         self.agregar_ingrediente.setText(QCoreApplication.translate("exit_mezcla_window", u"Agregar", None))
         self.label_4.setText(QCoreApplication.translate("exit_mezcla_window", u"CANTIDAD", None))
+        self.label_5.setText(QCoreApplication.translate("exit_mezcla_window", u"SACOS", None))
+        self.porcentaje.setText("")
     # retranslateUi
 

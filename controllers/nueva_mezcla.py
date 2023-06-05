@@ -6,6 +6,7 @@ from database.db import make_mezcla_prod, add_mezcla_data, get_all_products, add
 
 class AddMezclaForm(QWidget):
     mezcla_submitted = Signal()
+    
     def __init__(self, add_product,parent=None):
         super(AddMezclaForm, self).__init__(parent)
         self.ui = Ui_nueva_mezcla_window()
@@ -47,17 +48,18 @@ class AddMezclaForm(QWidget):
             cantidad = 0  # convertir la cantidad a un número
             add_mezcla_ingredient(id, id_prod,ingrediente,cantidad)
           # Esto eliminará todos los elementos del QTableWidget
-        self.ui.tabla_ingredientes.clearContents()
-        self.ui.tabla_ingredientes.setRowCount(0)
 
         self.ui.nombre_mezcla.clear()
         self.mezcla_submitted.emit()
+        self.ui.tabla_ingredientes.clearContents()
+        self.ui.tabla_ingredientes.setRowCount(0)
     
     
     def load_product_data(self):
-        self.ui.ingrediente_nueva_mezcla.clear()
+        
         products = get_all_products()
         for product in products:
             product_name = product[0]
             product_id = product[1]
             self.ui.ingrediente_nueva_mezcla.addItem(product_name, product_id)
+        self.ui.ingrediente_nueva_mezcla.clear()

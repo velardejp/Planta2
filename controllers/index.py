@@ -18,6 +18,7 @@ class MainWindowForm (QMainWindow):
         super(MainWindowForm, self).__init__(parent)
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+        #Declaracion de ventanas en MainWindow
         self.ventana_productos = AddWindowForm()
         self.ventana_entradas=AddEntryForm(self.ventana_productos)
         self.ventana_salidas=AddExitForm(self.ventana_productos)
@@ -27,7 +28,7 @@ class MainWindowForm (QMainWindow):
         self.ventana_reporte_entradas=EntryReportForm(self.ventana_entradas)
         self.ventana_kardex=KardexReportForm(self.ventana_entradas,self.ventana_salidas,self.ventana_mezcla)
         self.ventana_catalogo=CatalogoForm(self.ventana_productos,self.ventana_nueva_mezcla)
-        # Conectamos la función open_addproduct_window a la acción action_nuevoproducto
+        # Conexiones para abrir ventanas desde el meni
         self.ui.action_nuevoproducto.triggered.connect(self.open_addproduct_window)
         self.ui.action_entry.triggered.connect(self.open_entrys_window)
         self.ui.action_exit.triggered.connect(self.open_exits_window)
@@ -37,31 +38,28 @@ class MainWindowForm (QMainWindow):
         self.ui.action_report_entradas.triggered.connect(self.open_report_entrys_window)
         self.ui.action_report_kardex.triggered.connect(self.open_report_kardex_window)
         self.ui.action_catalago.triggered.connect(self.open_catalogo_window)
+        #Señales
         self.ventana_nueva_mezcla.mezcla_submitted.connect(self.load_mezclas)
         self.ventana_mezcla.exit_mezcla_submitted.connect(self.load_product_stock)
+        self.ventana_nueva_mezcla.mezcla_submitted.connect(self.ventana_mezcla.refresh)
+        #Graficos en pantalla de inicio
         self.get_productos()
         moda_salidas=str( mas_salidas())
         self.ui.mas_salidas.setText(moda_salidas)
         self.inventario_graph = InventoryGraph(self.ui.grafico_1)
         layout = QVBoxLayout()
-
-# Agrega el gráfico al layout.
         layout.addWidget(self.inventario_graph)
-
-# Establece el layout del widget que contiene el gráfico.
         self.ui.grafico_1.setLayout(layout)
-
         conn = sqlite3.connect('inventarioplanta.db')
         c = conn.cursor()
-        c.execute("SELECT name, stock FROM products ORDER BY stock")
+        c.execute("SELECT product_id, SUM(quantity) FROM exits_mezcla GROUP BY product_id")
         data_tuples = c.fetchall()
         conn.commit()
         conn.close()
-
-        data = data_tuples  # Pasamos las tuplas directamente a la función plot
+        data = data_tuples 
         self.inventario_graph.plot(data)
         
-
+    #Funciones para mostrar las otras ventanas
     def open_addproduct_window(self):
         self.ventana_productos.show()
 
@@ -88,18 +86,18 @@ class MainWindowForm (QMainWindow):
 
     def open_catalogo_window(self):
         self.ventana_catalogo.show()
-
+#Funciones para cargar los datos de las señales
     def load_product_stock(self):
         self.ventana_entradas.load_product_data()
         self.ventana_salidas.load_product_data()
-        
     def load_mezclas(self):
         self.ventana_mezcla.load_mezcla_data()
 
+#Funcion para cargar los productos en la tabla de inicio
     def get_productos(self):
         conn = sqlite3.connect('inventarioplanta.db')
         c = conn.cursor()
-        c.execute("SELECT name, stock FROM products ORDER BY stock DESC")
+        c.execute("SELECT name, stock FROM products WHERE stock > 0 ORDER BY stock DESC")
         products = c.fetchall()
         self.ui.tabla_stock.setRowCount(0)
         for row_number, row_data in enumerate(products):

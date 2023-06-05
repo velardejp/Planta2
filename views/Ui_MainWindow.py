@@ -65,7 +65,7 @@ class Ui_MainWindow(object):
         self.content_frame.setFrameShadow(QFrame.Raised)
         self.grafico_1 = QFrame(self.content_frame)
         self.grafico_1.setObjectName(u"grafico_1")
-        self.grafico_1.setGeometry(QRect(430, 0, 381, 211))
+        self.grafico_1.setGeometry(QRect(350, 20, 461, 211))
         self.grafico_1.setFrameShape(QFrame.StyledPanel)
         self.grafico_1.setFrameShadow(QFrame.Raised)
         self.tabla_stock = QTableWidget(self.content_frame)
@@ -76,6 +76,9 @@ class Ui_MainWindow(object):
         __qtablewidgetitem1 = QTableWidgetItem()
         self.tabla_stock.setHorizontalHeaderItem(1, __qtablewidgetitem1)
         self.tabla_stock.setObjectName(u"tabla_stock")
+        self.tabla_stock.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+        # Oculta el índice de la tabla.
+        self.tabla_stock.verticalHeader().setVisible(False)
         self.tabla_stock.setGeometry(QRect(25, 31, 311, 411))
         self.tabla_stock.setStyleSheet(u"QTableWidget {\n"
 "    background-color: #E1D4BB;\n"
@@ -107,7 +110,16 @@ class Ui_MainWindow(object):
 "}")
         self.mas_salidas = QLabel(self.content_frame)
         self.mas_salidas.setObjectName(u"mas_salidas")
-        self.mas_salidas.setGeometry(QRect(430, 290, 111, 81))
+        self.mas_salidas.setGeometry(QRect(350, 250, 111, 81))
+        self.mas_salidas.setStyleSheet(u"border-color: rgb(255, 255, 255);")
+        self.mas_almacen = QLabel(self.content_frame)
+        self.mas_almacen.setObjectName(u"mas_almacen")
+        self.mas_almacen.setGeometry(QRect(500, 250, 111, 81))
+        self.mas_almacen.setStyleSheet(u"border-color: rgb(255, 255, 255);")
+        self.mas_almacen_2 = QLabel(self.content_frame)
+        self.mas_almacen_2.setObjectName(u"mas_almacen_2")
+        self.mas_almacen_2.setGeometry(QRect(650, 250, 111, 81))
+        self.mas_almacen_2.setStyleSheet(u"border-color: rgb(255, 255, 255);")
 
         self.verticalLayout_2.addWidget(self.content_frame)
 
@@ -165,7 +177,9 @@ class Ui_MainWindow(object):
         ___qtablewidgetitem.setText(QCoreApplication.translate("MainWindow", u"Producto", None));
         ___qtablewidgetitem1 = self.tabla_stock.horizontalHeaderItem(1)
         ___qtablewidgetitem1.setText(QCoreApplication.translate("MainWindow", u"Stock", None));
-        self.mas_salidas.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
+        self.mas_salidas.setText("")
+        self.mas_almacen.setText("")
+        self.mas_almacen_2.setText("")
         self.menuProductos.setTitle(QCoreApplication.translate("MainWindow", u"Productos", None))
         self.menuEntradas.setTitle(QCoreApplication.translate("MainWindow", u"Entradas", None))
         self.menuSalidas.setTitle(QCoreApplication.translate("MainWindow", u"Salidas", None))

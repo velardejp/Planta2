@@ -18,7 +18,7 @@ class ExitReportForm(QWidget):
     def get_all_exits(self):
         conn = sqlite3.connect('inventarioplanta.db')
         c = conn.cursor()
-        result = c.execute("SELECT id,product_id,quantity,date, mezcla FROM exits")
+        result = c.execute("SELECT id,product_id,quantity,date, mezcla FROM exits UNION ALL SELECT id,product_id,quantity,date, NULL FROM exits_mezcla ORDER BY id")
         self.ui.tabla_salidas.setRowCount(0)
         for row_number, row_data in enumerate(result):
             self.ui.tabla_salidas.insertRow(row_number)

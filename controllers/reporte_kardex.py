@@ -2,7 +2,7 @@ from PySide6.QtWidgets import QWidget, QTableWidgetItem
 from PySide6.QtCore import Signal
 import pandas as pd
 from views.Ui_reporte_kardex import Ui_reporte_kardex
-from database.db import get_all_products
+from database.db import get_all_products, get_all_mezclas
 import sqlite3
 
 class KardexReportForm(QWidget):
@@ -11,9 +11,11 @@ class KardexReportForm(QWidget):
         super(KardexReportForm, self).__init__(parent)
         self.ui = Ui_reporte_kardex()
         self.ui.setupUi(self)
-        self.ui.productos_kardex.addItems([product[0] for product in get_all_products()])
+        combobox=self.get_mezclas_productos()
+        self.ui.productos_kardex.addItems([product[0] for product in combobox])
         self.get_all_entrys()
         self.get_all_exits()
+        self.get_all_exits_mezcla()
         self.ui.productos_kardex.currentTextChanged.connect(self.get_all_entrys)
         self.ui.productos_kardex.currentTextChanged.connect(self.get_all_exits)
         add_entry.entry_submitted.connect(self.get_all_entrys)
@@ -37,7 +39,17 @@ class KardexReportForm(QWidget):
         name=self.ui.productos_kardex.currentText()
         conn = sqlite3.connect('inventarioplanta.db')
         c = conn.cursor()
-        resultexit = c.execute("SELECT id,product_id,quantity,date, mezcla FROM exits WHERE product_id = ?",(name,))
+        resultexit = c.execute("SELECT id,product_id,quantity,date,mezcla FROM exits WHERE product_id = ?",(name,))
+        self.ui.tabla_salidas_kardex.setRowCount(0)
+        for row_number, row_data in enumerate(resultexit):
+            self.ui.tabla_salidas_kardex.insertRow(row_number)
+            for column_number, data in enumerate(row_data):
+                self.ui.tabla_salidas_kardex.setItem(row_number, column_number, QTableWidgetItem(str(data)))
+    def get_all_exits_mezcla(self):
+        name=self.ui.productos_kardex.currentText()
+        conn = sqlite3.connect('inventarioplanta.db')
+        c = conn.cursor()
+        resultexit = c.execute("SELECT id,product_id,quantity,date FROM exits_mezcla WHERE product_id = ?",(name,))
         self.ui.tabla_salidas_kardex.setRowCount(0)
         for row_number, row_data in enumerate(resultexit):
             self.ui.tabla_salidas_kardex.insertRow(row_number)
@@ -65,5 +77,12 @@ class KardexReportForm(QWidget):
         with pd.ExcelWriter(file) as writer:
             entry.to_excel(writer, sheet_name='Entry', index=False)
             exit.to_excel(writer, sheet_name='Exit', index=False)
-
+    
+    def get_mezclas_productos(self):
+        conn = sqlite3.connect('inventarioplanta.db')
+        c = conn.cursor()
+        c.execute("SELECT name, id FROM mezcla UNION ALL SELECT name, id FROM products")
+        mezclas = c.fetchall()
+        conn.close()
+        return mezclas
 

@@ -15,10 +15,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QComboBox, QDoubleSpinBox, QFrame,
-    QHeaderView, QLabel, QLineEdit, QPushButton,
-    QSizePolicy, QTableWidget, QTableWidgetItem, QVBoxLayout,
-    QWidget)
+from PySide6.QtWidgets import (QApplication, QComboBox, QFrame, QHeaderView,
+    QLabel, QLineEdit, QPushButton, QSizePolicy,
+    QTableWidget, QTableWidgetItem, QVBoxLayout, QWidget)
 
 class Ui_nueva_mezcla_window(object):
     def setupUi(self, nueva_mezcla_window):
@@ -144,6 +143,9 @@ class Ui_nueva_mezcla_window(object):
         __qtablewidgetitem1 = QTableWidgetItem()
         self.tabla_ingredientes.setHorizontalHeaderItem(1, __qtablewidgetitem1)
         self.tabla_ingredientes.setObjectName(u"tabla_ingredientes")
+        self.tabla_ingredientes.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+        # Oculta el índice de la tabla.
+        self.tabla_ingredientes.verticalHeader().setVisible(False)
         self.tabla_ingredientes.setGeometry(QRect(275, 20, 401, 231))
         self.tabla_ingredientes.setStyleSheet(u"QTableWidget {\n"
 "    background-color: #E1D4BB;\n"
@@ -175,7 +177,7 @@ class Ui_nueva_mezcla_window(object):
 "}")
         self.agregar_ingrediente = QPushButton(self.content_frame)
         self.agregar_ingrediente.setObjectName(u"agregar_ingrediente")
-        self.agregar_ingrediente.setGeometry(QRect(140, 200, 121, 51))
+        self.agregar_ingrediente.setGeometry(QRect(80, 210, 121, 51))
         self.agregar_ingrediente.setStyleSheet(u"QPushButton {\n"
 "    background-color: #E1D4BB;\n"
 "    color: #537188;\n"
@@ -195,38 +197,6 @@ class Ui_nueva_mezcla_window(object):
 "    background-color: #CBB279;\n"
 "    border: 2px solid #537188;\n"
 "    padding-left: 7px;\n"
-"}")
-        self.cantidad_ingrediente = QDoubleSpinBox(self.content_frame)
-        self.cantidad_ingrediente.setObjectName(u"cantidad_ingrediente")
-        self.cantidad_ingrediente.setGeometry(QRect(10, 200, 121, 51))
-        self.cantidad_ingrediente.setStyleSheet(u"QDoubleSpinBox {\n"
-"    background-color: #E1D4BB;\n"
-"    color: #537188;\n"
-"    border: 2px solid #CBB279;\n"
-"    border-radius: 5px;\n"
-"    padding: 5px;\n"
-"    margin: 5px;\n"
-"    font-size: 14px;\n"
-"}\n"
-"\n"
-"QDoubleSpinBox::up-button {\n"
-"    width: 20px;\n"
-"    border: none;\n"
-"    background: #537188 url(C:/Users/velar/OneDrive/Escritorio/Planta2/assets/icons8-collapse-arrow-24.png) no-repeat center;\n"
-"}\n"
-"\n"
-"QDoubleSpinBox::down-button {\n"
-"    width: 20px;\n"
-"    border: none;\n"
-"    background: #537188 url(C:/Users/velar/OneDrive/Escritorio/Planta2/assets/icons8-expand-arrow-24.png) no-repeat center;\n"
-"}\n"
-"\n"
-"QDoubleSpinBox::up-button:pressed {\n"
-"    background: #CBB279 url(C:/Users/velar/OneDrive/Escritorio/Planta2/assets/icons8-collapse-arrow-24.png) no-repeat center;\n"
-"}\n"
-"\n"
-"QDoubleSpinBox::down-button:pressed {\n"
-"    background: #CBB279 url(C:/Users/velar/OneDrive/Escritorio/Planta2/assets/icons8-expand-arrow-24.png) no-repeat center;\n"
 "}")
 
         self.verticalLayout_3.addWidget(self.content_frame)

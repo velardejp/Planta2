@@ -22,14 +22,14 @@ c.execute('''
 ''')
 c.execute('''
     CREATE TABLE IF NOT EXISTS mezcla_ingrediente (
-  mezcla_id TEXT,
-  products_id TEXT,
-  product_name TEXT,
-  cantidad REAL,
-  FOREIGN KEY(mezcla_id) REFERENCES mezcla(id),
-  FOREIGN KEY(products_id) REFERENCES products(id),
-  PRIMARY KEY(mezcla_id, products_id)
-)
+    mezcla_id TEXT,
+    products_id TEXT,
+    product_name TEXT,
+    cantidad REAL,
+    FOREIGN KEY(mezcla_id) REFERENCES mezcla(id),
+    FOREIGN KEY(products_id) REFERENCES products(id),
+    PRIMARY KEY(mezcla_id, products_id)
+    )
 ''')
 
 c.execute('''
@@ -58,7 +58,7 @@ c.execute('''
     CREATE TABLE IF NOT EXISTS exits_mezcla(
         folio INTEGER PRIMARY KEY AUTOINCREMENT,
         id TEXT,
-        mezcla_id TEXT,
+        product_id TEXT,
         quantity REAL,
         date TEXT,
         FOREIGN KEY(mezcla_id) REFERENCES mezcla(id)
@@ -82,9 +82,24 @@ def get_product_id(product_name):
 def add_product_data(id, name, unit):
     conn = sqlite3.connect('inventarioplanta.db')
     c = conn.cursor()
-    c.execute("INSERT OR IGNORE INTO products (id, name, unit) VALUES (?, ?, ?)", (id, name, unit))
+    
+    # Verificar si el producto ya existe en la base de datos
+    c.execute("SELECT COUNT(*) FROM products WHERE id=?", (id,))
+    result = c.fetchone()
+    if result[0] > 0:
+        message_producto = QMessageBox()
+        message_producto.setWindowTitle("Error")
+        message_producto.setText(f"Este producto'{name}' ya existe.")
+        message_producto.setIcon(QMessageBox.Warning)
+        message_producto.exec()
+        conn.close()
+        return
+    
+    c.execute("INSERT INTO products (id, name, unit) VALUES (?, ?, ?)", (id, name, unit))
     conn.commit()
     conn.close()
+    print("Producto agregado exitosamente.")
+
 def add_mezcla_ingredient(id_mezcla, id_producto, name_product,cantidad):
     conn = sqlite3.connect('inventarioplanta.db')
     c = conn.cursor()
@@ -145,10 +160,10 @@ def add_exit(id, product_name, quantity_out, mezcla):
         # Mostrar mensaje emergente
         message_box = QMessageBox()
         message_box.setWindowTitle("Error")
-        message_box.setText("No hay suficiente stock disponible para la salida del producto.")
+        message_box.setText(f"No hay suficiente stock disponible para la salida de {product_name}.")
         message_box.setIcon(QMessageBox.Warning)
         message_box.exec()
-        return
+        return False
     
     c.execute("INSERT INTO exits (id, product_id, quantity, date, mezcla) VALUES (?, ?, ?, ?, ?)",
               (id, product_name, quantity_out, exit_date, mezcla))
@@ -158,7 +173,7 @@ def add_exit(id, product_name, quantity_out, mezcla):
     
     conn.commit()
     conn.close()
-
+    return True
 
 def make_id_prod():
     conn = sqlite3.connect('inventarioplanta.db')
